@@ -1,5 +1,5 @@
 Access site here:
-[dancesWithMachines.github.io](dancesWithMachines.github.io)
+[dancesWithMachines.github.io](https://danceswithmachines.github.io/)
 
 Read Only by HTML5 UP
 html5up.net | @ajlkn
