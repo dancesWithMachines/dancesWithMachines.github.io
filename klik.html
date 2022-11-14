@@ -1,0 +1,513 @@
+
+    <html>
+      <head>
+        <title>klik</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+      <body>
+        <div id='content'>
+    <p><a href="./index.html">⬅️ Main page</a></p>
+<p><img src="./assets/klik/klik_logo.png" alt="Logo" /> - open source, assistant controlled physical button clicker.</p>
+<p>Note: This <a href="https://danceswithmachines.github.io/klik">web page</a> can be downloaded as pdf file. To do so, print the page with printer set to "save to PDF".</p>
+<h4 id="contents">Contents:</h4>
+<ol>
+<li><a href="#introduction">Introduction</a><ol>
+<li><a href="#philosophy-behind-klik">Philosophy behind Klik</a></li>
+<li><a href="#introduction-to-klik">Introduction to Klik</a><ol>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#component-approach-open-source">Component approach, open source</a></li>
+<li><a href="#zero-waste-preserving-existing-solutions">Zero-waste, preserving existing solutions</a></li>
+<li><a href="#cheap-and-simple">Cheap and simple</a></li></ol></li></ol></li>
+<li><a href="#components">Components</a><ol>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#firmware">Firmware</a><ol>
+<li><a href="#binary-file">Binary file</a></li>
+<li><a href="#releases-and-versioning">Releases and versioning</a></li>
+<li><a href="#source-code">Source code</a></li>
+<li><a href="#debugging">Debugging</a></li>
+<li><a href="#3rd-party">3rd party</a></li></ol></li>
+<li><a href="#pcb">PCB</a></li>
+<li><a href="#case-and-swing-arms">Case and swing-arms</a></li></ol></li>
+<li><a href="#device">Device</a><ol>
+<li><a href="#build">Build</a></li>
+<li><a href="#principle-of-operation">Principle of operation</a><ol>
+<li><a href="#powering">Powering</a></li>
+<li><a href="#buttons">Buttons</a></li>
+<li><a href="#led--states">Led (&) states</a></li>
+<li><a href="#connection-with-api-and-external-services">Connection with api and external services</a></li>
+<li><a href="#swing-arm-action">Swing-arm action</a></li>
+<li><a href="#configuration">Configuration</a></li></ol></li>
+<li><a href="#making">Making</a></li></ol></li>
+<li><a href="#about">About</a></li>
+<li><a href="#licensing">Licensing</a><ol>
+<li><a href="#source-code-license">Source code license</a></li>
+<li><a href="#case-and-swing-arm-license">Case and swing-arm license</a></li>
+<li><a href="#pcb-license">PCB license</a></li>
+<li><a href="#docs-and-webpage-license">Docs and webpage license</a></li>
+<li><a href="#3rd-party-licenses">3rd party licenses</a></li></ol></li>
+</ol>
+<h1 id="introduction">Introduction</h1>
+<p>This chapter is an introduction to Klik, philosophy behind it and description what it is supposed to do.</p>
+<h2 id="philosophy-behind-klik">Philosophy behind Klik</h2>
+<p>The main idea behind the creation of Klik is giving new life to "old" devices. This can be either devices from before the internet of things era or purely analog devices or mechanisms.</p>
+<p>Main goals:</p>
+<ul>
+<li>reducing waste, preserving the existing equipment, bringing it to IOT era;</li>
+<li>modernizing devices without interfering with their internal structure;</li>
+<li>adaptability and openness;</li>
+<li>component approach;</li>
+<li>easy to reproduce;</li>
+<li>cheap.</li>
+</ul>
+<h2 id="introduction-to-klik">Introduction to Klik</h2>
+<p>Klik is as a modular, open source, assistant-controlled physical button clicker.<br />
+The project is based on Raspberry Pi-Pico W, and utilizes <a href="https://io.adafruit.com/">Adafruit IO</a> API and <a href="https://ifttt.com/explore">IFTTT</a> for integration with assistants. Source code is written in C.</p>
+<p><img src="./assets/klik/klik_parts_1.JPG" alt="Klik parts" /></p>
+<h3 id="usage">Usage</h3>
+<p>The basic idea for Klik is to be attached to some kind of device (electric or analog) and physically control it. Klik is equipped with servo, that with use of swing-arm, can click, un-click or tap the buttons (currently single servo is supported).</p>
+<p>For full description go to <a href="#principle-of-operation">principle of operation</a> chapter.</p>
+<h3 id="component-approach-open-source">Component approach, open source</h3>
+<p>Klik was designed to be adapted for user needs, so think of each component as an example rather than ready solution. For example: you can completely ditch the proposed form (<a href="#case-and-swing-arms">case and swingarms</a>) of Klik and design your own, while keeping the PCB and the firmware.</p>
+<h3 id="zero-waste-preserving-existing-solutions">Zero-waste, preserving existing solutions</h3>
+<p>The <a href="#philosophy-behind-klik">main goal</a> is to preserve the stuff you already own. Why change something working, just to get the same thing but with the internet connection. This produces both unnecessary cost and waste.</p>
+<p>The great example are Roomba(s). The older models are still perfectly capable, but lack the option for "remote start". You can attach Klik to Roomba's dock (or even to the cleaner itself) and start it with your preferred assistant.</p>
+<h3 id="cheap-and-simple">Cheap and simple</h3>
+<p>Klik uses basic electronic components: headers, buttons, servo, resistors, led diode and Raspberry Pi-Pico W as it's core. The case and swing-arms examples are no larger than 10x10x10cm, so they can be reproduced on the smallest 3d printers. PCB can be easily etched at home, and all components mount onto it.</p>
+<p>The firmware is released as binary file so you don't have to go through a hustle of preparing programming environment.<br />
+Drag and drop the file to Pi-Pico, and you are ready to go.</p>
+<h1 id="components">Components</h1>
+<p>Klik consists of multiple components, both hardware and software. Each of them is shared with different licenses and stored in multiple repositories / sources.</p>
+<p>This chapter will guide you trough the components of Klik.</p>
+<h2 id="hardware">Hardware</h2>
+<p><img src="./assets/klik/klik_hardware.jpg" alt="Klik hardware" /></p>
+<p>Hardware side of Klik consists of following components:</p>
+<ul>
+<li>Raspberry Pi-Pico W;</li>
+<li>Tricolor (RGB) led diode;</li>
+<li>3 resistors (75Ω used);</li>
+<li>Micro-servo (not included in a picture, MG90S used);</li>
+<li>2 6x6 tact switches;</li>
+<li>Male and female headers (were trimmed to size).</li>
+</ul>
+<p>Almost all components mount onto <a href="#pcb">PCB</a>, with exception of servo.</p>
+<p>The Pi-pico W was chosen as a core of Klik due to:</p>
+<ul>
+<li>Great cost to resources ratio (comparing to Arduino);</li>
+<li>Onboard WiFi;</li>
+<li>Cheap price;</li>
+<li>Fresh product, mid 2022.</li>
+</ul>
+<p>For wiring diagram, and PCB refer to <a href="#pcb">PCB</a> chapter.</p>
+<h2 id="firmware">Firmware</h2>
+<h3 id="binary-file">Binary file</h3>
+<p><a href="https://github.com/dancesWithMachines/klik/releases">💾 Download Klik - binary</a></p>
+<p>The code is redistributed in binary form, so you don't have to setup programming environment, which can be painful. You can just drag and drop the file to Pi-Pico and you should be good to go!</p>
+<p>This is a "killer feature" of Klik and it component design (especially as Pi-Pico, C/C++ sdk based product 😉🙂😉). You shouldn't have to mess with programming part if you don't want to. <a href="#configuration">Configuration</a> is done entirely over serial, USB or uart.</p>
+<h3 id="releases-and-versioning">Releases and versioning</h3>
+<p>Klik uses following scheme for versioning: <code>vX.Y</code></p>
+<p><code>X</code> - new feature added. <code>Y</code>- bug fixes.</p>
+<p>Klik is at project phrase, there's no need for implementing a full versioning scheme at this level. This versioning will allow easy switch for standardized if necessary.</p>
+<h3 id="source-code">Source code</h3>
+<p><a href="https://github.com/dancesWithMachines/klik">💾 Download source code</a></p>
+<p>Klik firmware is available on Github.</p>
+<p>The code was written in C, using official C/C++ SDK for Pi-Pico. Logic is splitted between between multiple source files, based on purpose, and most of it was written with reusability in mind. For example, servo.c/h file contains only logic for handling servo.</p>
+<p>Instructions of how to compile the code are available in <a href="https://github.com/dancesWithMachines/klik">source code repository</a> readme file.</p>
+<h3 id="debugging">Debugging</h3>
+<p><img src="./assets/klik/klik_debug.jpg" alt="Wacky world of debuggers" /></p>
+<p>The pcb has pinout extension for debugging. You can set up pico-probe + gdb based debugger with <a href="https://www.digikey.be/en/maker/projects/raspberry-pi-pico-and-rp2040-cc-part-2-debugging-with-vs-code/470abc7efb07432b82c95f6f67f184c0">this tutorial</a>.</p>
+<h3 id="3rd-party">3rd party</h3>
+<p>Hardly any non standard, 3rd party libraries are used within the code, but there's a catch…</p>
+<p>The communication with Adafruit IO API, is based on http requests. At the time of writing this, there's no official examples  nor documentation, available for handling http requests on Pi-Pico with C/C++. The implementation that is present in <code>libs/picow_tls_client</code> is a <strong>modified, appending (not yet merged with upstream) http request example, taken from development branches!</strong> It was modified to be used as library, but with very little attention. The reason is, while it works, it's state leave much to be desired and will be probably changed till it makes it into upstream. It was moved to subdirectory as it's not an own's work and [Note from the author] "looking at it gives me pain". <code>picow_tls_client</code> uses <a href="https://savannah.nongnu.org/projects/lwip/">LwIP</a> underneath.</p>
+<p>Klik was designed to work with <a href="https://io.adafruit.com/">Adafruit IO</a> API and <a href="https://ifttt.com/explore">IFTTT</a>. Hence, http requests are adapted to the format supported by Adafruit IO. Currently, there are no other options available.</p>
+<p>IFTTT has many options for setting triggers that works with Adafruit IO (refer to <a href="#principle-of-operation">principle of operation</a> chapter for explanation) including various assistants. They are not strictly connected to Klik, but keep in mind, that you'll be using more third party services if you want assistant integration.</p>
+<p><strong>You should be aware that those solutions are "absolutely proprietary", and it's up to you if you want to give these companies access to your stuff.</strong></p>
+<h2 id="pcb">PCB</h2>
+<p><strong>NOTE: Following pictures are for reference only</strong>, download up-to-date version from source!</p>
+<p><img src="./assets/klik/klik_pcb.png" alt="Klik pcb" /></p>
+<p><img src="./assets/klik/klik_schematic.png" alt="Klik schematic" /></p>
+<p><a href="https://oshwlab.com/timax_/klik">💾 Download Schematic and PCB design</a></p>
+<p>The schematic and PCB for Klik were designed in <a href="https://easyeda.com/">EasyEda</a>.</p>
+<p>While schematic might not be correct from technical point of view, it is easy to follow and reproduce.</p>
+<p>The PCB was designed to be a single layer (in EasyEda there are two layers), so it can be etched at home.<br />
+All holes can be drilled with 1mm drill bit, except the holes for led diode (use 6mm).<br />
+To print the pcb layout for thermal transfer you can use EasyEda's export feature. Export the second layer with traces, holes and mount points as PDF file, and print it in 1:1 (100%) scale.</p>
+<p>Since the project was made with EasyEda, ordering the PCB from the PCB manufactories should be easy, but that was <strong>not</strong> tested.</p>
+<p>Almost all <a href="#hardware">components</a> mount onto the PCB, except servo. <strong>Do not solder servo directly to the board</strong>, the cable must pass through a small hole in the housing. Using opening in the boom is optional, it depends what type of servo will you use, and it's direction.</p>
+<p>It is advised to use female headers for Pi-pico rather than soldering it directly. It can be easily swapped in case of failure.</p>
+<p>As you can see, the schematic and PCB have additional header on top. This is the pinout for debugging.<br />
+You can skip soldering the header here it if you don't plan on messing with the code, refer to <a href="#debugging">debugging</a> otherwise.</p>
+<h2 id="case-and-swing-arms">Case and swing-arms</h2>
+<p><img src="./assets/klik/klik_swingarms.JPG" alt="Swing arms" /></p>
+<p><a href="https://www.thingiverse.com/thing:5632625">💾 Download case and swing arms</a></p>
+<p>Case and swing arms are available on <a href="https://www.thingiverse.com/">Thingverse</a>.</p>
+<p>All parts were designed in FreeCad, to fit 10x10x10cm 3d printers.</p>
+<p>Some of the parts have to be glued together (outer case and GoProlike boom holder). Regular GoPro bolt can also be used to attach the boom to the holder, but hardware store nut and bolt will also do. You will also need 3mm bolt and 5mm nut to attach the pcb. The outer case has cutouts for mounting nuts.</p>
+<p>As it was said in <a href="#component-approach-open-source">component approach</a> chapter, this parts should be used as an example rather than template. While the case (with the boom) can be reproduced it is doubtful that any of swing-arms will suit your needs. Also, MG90S (servo) has multiple versions with different head sizes, so the swing-arms might simply not fit.</p>
+<p>Note: The parts were printed (and tested) on the cheapest 3d printer on the market. They were designed with a margin by using trial and error method. Some (size) exceptions might occur.</p>
+<h1 id="device">Device</h1>
+<p>This chapter describes base device, useful when you want to reproduce the device in its original/base form. Users are encouraged to change Klik however they like, as said in <a href="#component-approach-open-source">component design</a> chapter.</p>
+<h2 id="build">Build</h2>
+<p>The picture below shows all Klik components put together. For simplicity, the picture is missing servo wire and pi-pico's micro-usb port for power.</p>
+<p><img src="./assets/klik/klik_colored.png" alt="Klik colored" /></p>
+<p>The individual elements, marked in color, are described below.</p>
+<p>🔴 Case - holds all components together.</p>
+<p>🟢 Main button - used to perform manual click (on/off).</p>
+<p>🔵 Reset button - used to reset the device, for e.g. when configuration was changed.</p>
+<p>🟣 Boom - holds the servo and swing-arm. The boom can be adjusted to change the swing-arm distance.</p>
+<p>🟡 Boom screw - used to attach the boom to the case.</p>
+<p>⚫️ Servo - used to move the swing-arm.</p>
+<p>🟤 Swing-arm - used to interact with external devices. Swing-arm shown in the picture is only an example.</p>
+<h2 id="principle-of-operation">Principle of operation</h2>
+<p>Klik, clicks buttons… but there's more than that to it.</p>
+<h3 id="powering">Powering</h3>
+<p>Klik receives power via micro-usb port, directly attached to pi-pico. It can be powered from normal usb charger or power-bank.</p>
+<h3 id="buttons">Buttons</h3>
+<p>There are two buttons that are integral part of closing lid. The lower one, is used to perform click action (on or off) by click (and hold) of the button. This is useful when the swing-arm is directly connected to something, and it could not be moved without changing swing-arm position. Second button is used to reset/restart if errors are present during bootup or configuration has changed. Refer to <a href="#configuration">Configuration</a> for more.</p>
+<h3 id="led--states">Led (&amp;) states</h3>
+<p>Klik has build in 3 color led, that is used to indicate device state. Below is the list of states with corresponding led pattern:</p>
+<ul>
+<li>SETUP STATE - Device is performing initialization. Normal behaviour. Led cycles between green and blue.</li>
+<li>CONNECTING STATE - Device is connecting to WIFI. Normal behaviour. Led cycles between blue and red.</li>
+<li>CONNECTION ERROR STATE - Device was unable to connect to WIFI. Check your WIFI configuration, or device is to far from WIFI source. Led blinks red once a second.</li>
+<li>REQUEST ERROR STATE - Device cannot connect to Adafruit IO. Check your api configuration (key, name, feed name). Led blinks blue once a second.</li>
+<li>WORKING STATE - Device has successfully completed initialization, has WIFI connection and gets data from Adafruit IO. Normal behaviour. Led blinks green once for five seconds.</li>
+</ul>
+<h3 id="connection-with-api-and-external-services">Connection with api and external services</h3>
+<p>The diagram of connection with external services is presented below.</p>
+<p><img src="./assets/klik/klik_relations.png" alt="Connections scheme" /></p>
+<p>Let's start with the main service that is Adafruit IO. Adafruit has so called "feeds". Feeds are related to account, user can have multiple of them. It basically is a space on the internet, that you can write (from) and read (to). The structure of feed resembles stack, approaching values are put on top. The flow has a single variable (of whatever type) called "value". For more detailed description refer to <a href="https://learn.adafruit.com/adafruit-io-basics-feeds">Adafruit IO documentation</a>.</p>
+<p>Klik uses http requests and <a href="https://io.adafruit.com/api/docs/#adafruit-io-http-api">Adafruit IO http api</a> to read and write the value to Adafruit IO. Device checks feed once in a second and performs <a href="#swing-arm-action">swing-arm action</a> accordingly. Klik also writes to feed, when it ends performing an action or when action is requested manually (by push of a button).</p>
+<p>Simple numeric value is used in process. Below is the list of currently supported values and swing arm actions:</p>
+<ol start="0">
+<li>Move swing arm to 0 position.</li>
+<li>Move swing arm to max angle position.</li>
+<li>Perform tap action.</li>
+<li>Perform double tap action.</li>
+</ol>
+<p>Refer to <a href="#swing-arm-action">swing-arm action</a> chapter for action explanation.</p>
+<p>Next important service, present on the diagram is <a href="https://ifttt.com/explore/new_to_ifttt">IFTTT</a>. It has both Adafruit IO and various assistants integration. IFTTT acts like a communication layer between various services. In this exact case, it allows assistant (trigger) to write specific value to Adafruit IO (action). Below is a simple applet for this scenario (the picture is a modified screenshot of applet on IFTTT website).</p>
+<p><img src="./assets/klik/IFTTT.png" alt="Applet" /></p>
+<p>Use of IFTTT is required only for integration with assistant. This step be completely skipped if you are planning to use custom app to send requests to Adafruit IO. It also should be fairly easy to connect Klik to your own http based api, as the code basically looks for pattern <code>"value":&lt;value&gt;</code> in incoming responses. This however, would require changes in source code.</p>
+<h3 id="swing-arm-action">Swing-arm action</h3>
+<p>Klik's swing arm is used to interact with external devices. Swing-arm distance can be adjusted by loosing and tightening the screw that holds the boom to the case. Swing-arm stroke (amount of movement) can be <a href="#configuration">configured</a> over Serial. Swing arms mount directly onto servo and can be changed for specific needs.</p>
+<p>Swing arm can move in two ways:</p>
+<ol>
+<li>On/off action - swing arm changes it's position from corner to corner position (0 to max configured angle, and conversely) with push of the button. Button must be held until servo moves, it shouldn't take longer than 2 seconds. A specific position can be requested remotely, with the use of an assistant or different trigger.</li>
+<li>Tapping action - swing arm goes to 0 position, and performs tap motion (0 to max angle and back). After tap, swing-arm stays in off position. Klik also supports double tap.</li>
+</ol>
+<p>For the list of values that request specific movement go to <a href="#connection-with-api-and-external-services">connection with api and external services</a> chapter.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Configuration is done entirely over Serial via USB or UART.<br />
+Default settings are: <code>BAUD RATE: 115200</code>, <code>DATA BITS: 8</code>, <code>STOP BITS: 1</code>, <code>SERIAL PARITY: 0</code>.</p>
+<p>Before explanation how to connect to Klik, let's talk through configuration string pattern.</p>
+<p>Each configuration string has pattern like this: <code>MODE SETTING VALUE</code>. Elements in configuration strings are separated by spaces. Below is the list of supported options for each element.</p>
+<p><code>MODE</code> options:</p>
+<ul>
+<li><code>RST</code> - resets config to defaults, standalone command, does not require additional parameters.</li>
+<li><code>GET</code> - used to get / display the value of setting.</li>
+<li><code>SET</code> - used to set setting's value.</li>
+</ul>
+<p><code>SETTING</code> options:</p>
+<ul>
+<li><code>SSID</code> - WIFI ssid name.</li>
+<li><code>PASS</code> - WIFI password.</li>
+<li><code>USRN</code> - Adafruit IO username.</li>
+<li><code>FNME</code> - Adafruit IO feed name.</li>
+<li><code>APIK</code> - Adafruit IO api key.</li>
+<li><code>ANGL</code> - Maximum angle of swing-arm (servo) stroke, max value is 180.</li>
+<li><code>MESS</code> - Message, it can be whatever you like.</li>
+<li><code>CONF</code> - Valid only in <code>GET</code> mode. Prints current configuration.</li>
+</ul>
+<p>Using <code>SET</code> mode, requires value to be specified for each setting.</p>
+<p>All settings are stored in the flash memory. Settings are applied during boot sequence, so after changing configuration, the device should be restarted.</p>
+<p>Klik stores configuration at the beginning of the last available flash sector for writing. On first boot-up it will check if configuration is present, and if not, apply default values.</p>
+<p>Below is the example of configuring Klik via serial over USB.<br />
+<img src="./assets/klik/klik_term_s.png" alt="Klik terminal send" /><br />
+<img src="./assets/klik/klik_term_r.png" alt="Klik terminal receive" /></p>
+<p>Two terminal windows were used, one running minicom to receive the feedback, and one to send configuration strings.<br />
+As shown in the picture, Klik provides simple feedback indicating whether command was valid.</p>
+<h2 id="making">Making</h2>
+<p>Making Klik in it's base form is a matter of putting all components together and configuring.</p>
+<p>Suggested order of putting Klik together:</p>
+<ol>
+<li>Etch or get the PCB and solder all necessary components. Use female headers rather than soldering Pi-Pico directly. Decide if you'll be using debug port, and if so, solder the header for debug also.</li>
+<li>Flash Pi-Pico W with firmware. Connect it to pc in flash mode and drag and drop binary file into pi-pico's directory.</li>
+<li>Mount Pi-Pico onto PCB and check if led suggests activity.</li>
+<li>Print or get Klik's casing.</li>
+<li>Glue outer case and boom holder together.</li>
+<li>Mount PCB inside the casing.</li>
+<li>Secure PCB and boom with nuts and bolts.</li>
+<li>Attach servo to boom. Plug servo cable to pcb using hole on the side of outer casing.</li>
+<li>Create account on Adafruit IO and configure the feed. Write 0 as initial feed value.</li>
+<li>Perform initial device configuration.</li>
+<li>Check if device connects to Adafruit IO.</li>
+<li>Perform manual swing-arm position change, by pressing and holding the main button. If successful, you should also observe that feed value changes in Adafruit IO feed.</li>
+<li>Close the case by attaching the lid.</li>
+<li>Create IFTTT account and connect it with your assistant of choice and your Adafruit IO feed.</li>
+<li>Create 4 applets in IFTTT. Configure trigger and action, each should write values as described in <a href="#connection-with-api-and-external-services">connections with external services</a> chapter to your feed.</li>
+<li>Test all supported swing-arm actions.</li>
+<li>Mount Klik to device of choice.</li>
+<li>Attach swing-arm of choice. Adjust the boom (manually), and the swing-arm stroke (configuration).</li>
+<li>Test the setup.</li>
+</ol>
+<h1 id="about">About</h1>
+<p><img src="./assets/klik/klik_logo.png" alt="Logo" /></p>
+<p>Klik 2022 by M.Kusiak (timax).</p>
+<p>Check <a href="#licensing">licensing</a> chapter for licensing information.</p>
+<h1 id="licensing">Licensing</h1>
+<p>This chapter is focused on individual components and 3rd party licenses.</p>
+<h2 id="source-code-license">Source code license</h2>
+<p>Klik's source code is released under <a href="https://opensource.org/licenses/BSD-3-Clause">BSD 3 license</a>.<br />
+Contributions to the source code are highly welcome.</p>
+<p>Copyright 2022 M.Kusiak (timax)</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<ol>
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p></li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<h2 id="case-and-swing-arm-license">Case and swing-arm license</h2>
+<p>Case and swing-arms are released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons - Attribution 4.0 International</a> license.</p>
+<p>You can do whatever you want with both stl and FreeCad files, as long as you credit the author.</p>
+<p>If you design your own things from ground up, there is no need to credit Klik's author.</p>
+<p>It is not obligatory, but encouraged to share your designs. They might be helpful to other users, and will help Klik grow.</p>
+<h2 id="pcb-license">PCB license</h2>
+<p>The pcb and schematic are released under <a href="https://creativecommons.org/licenses/by/3.0/">Creative Commons - Attribution 3.0 Unported</a></p>
+<p>You can do whatever you want with the files as long as you credit the author, add link to license and indicate changes.</p>
+<p>If you design your own things from ground up, there is no need to credit Klik's author.</p>
+<p>It is not obligatory, but encouraged to share your designs. They might be helpful to other users, and will help Klik grow.</p>
+<h2 id="docs-and-webpage-license">Docs and webpage license</h2>
+<p>Documentation in form of web page, follows the license of <a href="dancesWithMachines.github.io">dancesWithMachines</a> web page. Check <a href="https://github.com/dancesWithMachines/dancesWithMachines.github.io">web page repository</a> for information.</p>
+<h2 id="3rd-party-licenses">3rd party licenses</h2>
+<p>Copyright (c) 2001-2004 Swedish Institute of Computer Science.<br />
+All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification,<br />
+are permitted provided that the following conditions are met:</p>
+<ol>
+<li>Redistributions of source code must retain the above copyright notice,<br />
+this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice,<br />
+this list of conditions and the following disclaimer in the documentation<br />
+and/or other materials provided with the distribution.</li>
+<li>The name of the author may not be used to endorse or promote products<br />
+derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS AND ANY EXPRESS OR IMPLIED<br />
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF<br />
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT<br />
+SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,<br />
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT<br />
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS<br />
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN<br />
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING<br />
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY<br />
+OF SUCH DAMAGE.</p>
+<hr />
+<p>Copyright 2020 (c) 2020 Raspberry Pi (Trading) Ltd.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the<br />
+following conditions are met:</p>
+<ol>
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following<br />
+disclaimer.</p></li>
+<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following<br />
+disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+<li><p>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products<br />
+derived from this software without specific prior written permission.</p></li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,<br />
+INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE<br />
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,<br />
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR<br />
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,<br />
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF<br />
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+
+        </div>
+        <style type='text/css'>body {
+  font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111;
+  background-color: #fdfdfd;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+
+  body > #content {
+    padding: 0px 20px 20px 20px !important;
+  }
+}
+
+body > #content {
+  margin: 0px;
+  max-width: 900px;
+  border: 1px solid #e1e4e8;
+  padding: 10px 40px;
+  padding-bottom: 20px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  color: #bbb;
+  background-color: #bbb;
+  height: 1px;
+  flex: 0 1 auto;
+  margin: 1em 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+ * Links
+ */
+a {
+  color: #0366d6;
+  text-decoration: none; }
+  a:visited {
+    color: #0366d6; }
+  a:hover {
+    color: #0366d6;
+    text-decoration: underline; }
+
+pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+/**
+  * Code blocks
+  */
+
+code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  word-wrap: break-word;
+  padding: .2em .4em;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+}
+
+pre > code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+  font-size: 100%;
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  margin-left: 30px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  border-left-width: 3px;
+  padding: 0 1em;
+  color: #828282;
+  border-left: 4px solid #e8e8e8;
+  padding-left: 15px;
+  font-size: 18px;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+blockquote * {
+  font-style: normal !important;
+  letter-spacing: 0;
+  color: #6a737d !important;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-spacing: 2px;
+  display: block;
+  font-size: 14px;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+th {
+  font-weight: 600;
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+/**
+ * Others
+ */
+
+img {
+  max-width: 100%;
+}
+
+p {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #24292e; }
+
+ul {
+  margin-top: 0; }
+
+li {
+  color: #24292e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5; }
+
+li + li {
+  margin-top: 0.25em; }
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #24292e; }
+
+a:visited {
+  color: #0366d6; }
+
+h1, h2, h3 {
+  border-bottom: 1px solid #eaecef;
+  color: #111;
+  /* Darker */ }</style>
+      </body>
+    </html>

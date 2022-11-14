@@ -5,7 +5,8 @@ Here you can find information about my projects, docs or me.
 
 ## Projects
 #### [Car Instrument cluster control](https://github.com/dancesWithMachines/Instrument-Cluster-controll-board)
-### Past projects:
+#### [Klik - Open source, assistant controlled physical button clicker](https://github.com/dancesWithMachines/klik/wiki) | [Docs](./klik.md)
+### Past projects
 #### [Thinkz - Smartpen (article in Polish)](https://spidersweb.pl/bizblog/thinkz-dlugopis/)
 ## About Me
 
