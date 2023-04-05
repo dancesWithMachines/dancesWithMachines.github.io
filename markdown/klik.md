@@ -177,7 +177,7 @@ You can skip soldering the header here it if you don't plan on messing with the 
 
 [💾 Download case and swing arms](https://www.thingiverse.com/thing:5632625)
 
-Case and swing arms are available on [Thingverse](https://www.thingiverse.com/).
+Case and swing arms are available on [Thingiverse](https://www.thingiverse.com/).
 
 All parts were designed in FreeCad, to fit 10x10x10cm 3d printers.
 

@@ -1,0 +1,325 @@
+
+      <html>
+        <head>
+          <title>pico_LCD_lib</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta charset="UTF-8">
+        </head>
+        <body>
+          <div id='content'>
+      <p><a href="./index.html">⬅️ Main page</a></p>
+<h1 id="dwm_pico_5110_lcd---c-nokia-display-library-for-pi-pico">dwm_pico_5110_LCD - C Nokia display library for pi pico</h1>
+<p>This is a quick start guide for how to use Nokia 5110 LCD on Raspberry Pi Pico using dwm_pico_5110_LCD library.</p>
+<p>This guide covers the basics of LCD operation, how to connect LCD display to Pi Pico and how to interact with it using library. Remember, this guide provides information necessary to get you started using the display with Raspberry Pi Pico. If you need specific information about the display, or any topic covered here, you should look elsewhere.</p>
+<p><strong>Contents:</strong></p>
+<ol>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#lcd-basics">LCD Basics</a><ol>
+<li><a href="#communication">Communication</a></li>
+<li><a href="#pinout---pin-functions">Pinout - pin functions</a></li></ol></li>
+<li><a href="#connecting-to-pi-pico">Connecting to Pi Pico</a><ol>
+<li><a href="#spi-interface">SPI interface</a></li>
+<li><a href="#connecting-lcd-to-pi-pico">Connecting LCD to Pi Pico</a></li></ol></li>
+<li><a href="#operating-display-with-dwm_pico_5110_LCD">Operating display with dwm_pico_5110_LCD</a><ol>
+<li><a href="#compiling-example">Compiling example</a></li>
+<li><a href="#adding-library-to-your-project">Adding library to your project</a></li>
+<li><a href="#initiating-library">Initiating library</a></li>
+<li><a href="#function-types">Function types</a></li></ol></li>
+<li><a href="#licensing">Licensing</a></li>
+</ol>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The following document partially uses master/slave nomenclature that is now abandoned. This is because the topics discussed here were invented when this was still a standard, and there's no possibility to omit them without creating potential misunderstanding.</p>
+<h2 id="lcd-basics">LCD Basics</h2>
+<p>This chapter explains basic principle of operation of LCD.</p>
+<h3 id="communication">Communication</h3>
+<p>Nokia 5110 display module uses a variant of the Serial Peripheral Protocol (SPI) for communication with primary (master) device. The main thing that distinguishes it from the standard, is that this communication is one way only, which means that LCD can only receive data. The display also features additional signal ports like RST, that are not present in standard SPI. Port properties are explained in detail in <a href="#pinout---pin-functions">pinout chapter</a>, refer to this chapter for details on how the display operates.</p>
+<h3 id="pinout---pin-functions">Pinout - pin functions</h3>
+<p><img src="./assets/pico_LCD_lib/sticknote.jpg" alt="Sticknote" /><br />
+Pinout and functions:</p>
+<ul>
+<li>LED - display backlight. Can be connected to power source, or be controlled digitally via PWM (not part of library).</li>
+<li>SCLK - SERIAL CLOCK (SPI STANDARD) - Used to establish communication speed. Display supports maximum SPI speed of 4Mhz.</li>
+<li>DIN - DATA IN (SPI STANDARD (MOSI)) - Input pin for SPI data. This would be MOSI in standard SPI communication.</li>
+<li>D/C - DATA / COMMAND (SELECT) - This pin is used to notify display whether data or command is send. Low for command, high for data.</li>
+<li>RST - RESET - Used to clear display registers. Low state should be set for about 100 nanoseconds (don't quote me on that), then set to high, and left alone.</li>
+<li>SCE - SLAVE CHIP ENABLE (SPI STANDARD (CHIP SELECT)) - This pin is used to mark what "device" (for lack of better word) should process the data if there are multiple connected to single SPI bus.</li>
+<li>GND - Common ground.</li>
+<li>VCC - Power source. LCD operates between 2.7v and 3.3v so connecting to 3.3v provided by Pi Pico <strong>should</strong> be safe.</li>
+</ul>
+<h2 id="connecting-to-pi-pico">Connecting to Pi Pico</h2>
+<p>This chapter briefly explains how to connect the display to Pi Pico.</p>
+<h3 id="spi-interface">SPI interface</h3>
+<p>Raspberry Pi Pico has two SPI interfaces, as shown in the picture below (either SPI1 or SPI0, marked with dark pink color).<br />
+<img src="https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg" alt="Pico pinout" /><br />
+Source: <a href="https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg">Raspberry Pi Pico documentation https://www.raspberrypi.com/documentation/microcontrollers/images/pico-pinout.svg</a></p>
+<p>Attention should be paid to the acronyms corresponding to each SPI LINE like: SCK, TX, CSn… This library uses hardware SPI, thus it is important for some of the display pins to connect the, to pins with certain function! This is explained more in the next chapter.</p>
+<h3 id="connecting-lcd-to-pi-pico">Connecting LCD to Pi Pico</h3>
+<p>Below is an example of connecting 5110 LCD display to Raspberry Pi Pico.<br />
+<img src="./assets/pico_LCD_lib/connection_scheme.png" alt="Connection scheme" /><br />
+Note: Pi Pico picture was taken from the previous picture, provided by Raspberry Pi Team.</p>
+<p>The basics of connecting the display to Pi Pico are as follow:</p>
+<ul>
+<li>DIN pin must be connected to any SPI<N> TX pin on Pi Pico (where <N> is number of SPI interface of choice).</li>
+<li>SCLK pin must be connected to any SPI<N> SCK pin on Pi Pico, <strong>under the same SPI interface like DIN pin!</strong></li>
+<li>Pins: SCE, RST, D/C can be connected to any general purpose (GP) pin of Pi Pico.</li>
+<li>LCD has operating voltage between 2.7-3.3v. VCC and LED pins can be connected to Pico's 3v3(OUT) pin.</li>
+<li>GND can be connected to any ground pin on Pi Pico.</li>
+</ul>
+<h2 id="operating-display-with-dwm_pico_5110_lcd">Operating display with dwm_pico_5110_LCD</h2>
+<p>This chapter briefly explains, how to use dwm_pico_5110_LCD library.</p>
+<h3 id="compiling-example">Compiling example</h3>
+<p>After obtaining the repository, open CMakeLists.txt and edit PICO<em>SDK</em>PATH, set your SDK path accordingly.</p>
+<p>Next, add directory called <code>build</code> inside main repo directory <code>./</code>.</p>
+<p>Switch to newly created directory and run command <code>cmake ..</code>.</p>
+<p>If no errors were reported, you can run <code>make</code> command inside the same directory, to build the project.</p>
+<p>After running the command you should get executable file called <code>example.uf8</code> which you can drag &amp; drop to Pi Pico when connected in flash mode.</p>
+<p>Additional notes:<br />
+If your connection scheme does not match the one provided in previous chapter, you should edit macros at the beginning of <code>example.c</code> file, to suit your setup.</p>
+<h3 id="adding-library-to-your-project">Adding library to your project</h3>
+<p>Copy <code>dwm_pico_5110_LCD</code> library directory (the one inside the repo) to your project, add necessary lines to CMakeLists.txt and you should be good to go.</p>
+<p>Don't forget to include library in your project and add necessary lines to CMakeLists.txt. For your convenience these are marked with <code># &lt;--</code> in example provided.</p>
+<h3 id="initiating-library">Initiating library</h3>
+<p>Before using any methods, the library must be initiated first.<br />
+<strong>…and before initiating library, SPI must be initiated first!</strong></p>
+<p>This is done this way, to make the user aware, that they are running SPI with 4MHz clock speed (which is not a full potential of Pi Pico, but limitation of 5110 LCD display).</p>
+<p>Also, make sure that pins are assigned to LCD display.</p>
+<p>Please check out <code>main</code> function in <code>example.c</code> file to see proper library initialization in practice.</p>
+<h3 id="function-types">Function types</h3>
+<p>All functions start with <code>LCD_</code> prefix. This helps keeping track that the library is used, and helps with autocomplete.</p>
+<p>There are 4 types of functions in the library:</p>
+<ul>
+<li>Setters - this function are used only on init, to assign the pins and spi interface to the LCD. This type of functions always start with <code>LCD_set</code>.</li>
+<li>Getters - this are helper functions. They are mostly used to get some values. These should start with <code>LCD_get</code> prefix.</li>
+<li>Writing functions - these are used to interact with the display on demand, meaning any of this functions somehow triggers screen when executed. This type of functions allow to change display parameters (like inverting color) or displaying text on the display.</li>
+<li>Draw functions - these functions are mostly used for drawing shapes on the screen, but key difference (regarding "Writing functions") is that changes are written to buffer rather to the screen directly. All the changes made to the buffer are kept in memory, and can be passed to LCD via <code>LCD_refresh</code> methods.</li>
+</ul>
+<p>If you need the list of functions, they can be found in <code>dwm_pico_5110_LCD.h</code> header file.<br />
+All the functions should have description provided, and your editor should be able to handle them, providing snapshot when function is used. If for some reason this does not work, you can check function descriptions directly in <code>dwm_pico_5110_LCD.c</code> file.</p>
+<h2 id="licensing">Licensing</h2>
+<p>dwm_pico_5110_LCD library is shared under General Public ~~Virus~~ License 3.0. <br />
+Detailed licensing terms are a part of library repository.</p>
+
+          </div>
+          <style type='text/css'>body {
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    background-color: #fbfbfb;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    body>#content {
+        padding: 0px 20px 20px 20px !important;
+    }
+}
+
+body>#content {
+    margin: 0px;
+    max-width: 900px;
+    border: 1px solid #e1e4e8;
+    padding: 10px 40px;
+    padding-bottom: 20px;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+summary {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+hr {
+    color: #bbb;
+    background-color: #bbb;
+    height: 1px;
+    flex: 0 1 auto;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
+}
+
+.hljs-operator {
+    color: #868686;
+    /* There is a bug where the syntax highlighter would pick no color for e.g. `&&` symbols in the code samples. Let's overwrite this */
+}
+
+
+/**
+ * Links
+ */
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #0366d6;
+}
+
+a:hover {
+    color: #0366d6;
+    text-decoration: underline;
+}
+
+pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+
+
+/**
+  * Code blocks
+  */
+
+code {
+    background-color: rgba(27, 31, 35, .05);
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    word-wrap: break-word;
+    padding: .2em .4em;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
+pre>code {
+    background-color: transparent;
+    border: 0;
+    display: inline;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal;
+    font-size: 100%;
+}
+
+
+/**
+ * Blockquotes
+ */
+
+blockquote {
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    border-left-width: 3px;
+    padding: 0 1em;
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+}
+
+blockquote * {
+    font-style: normal !important;
+    letter-spacing: 0;
+    color: #6a737d !important;
+}
+
+
+/**
+ * Tables
+ */
+
+table {
+    border-spacing: 2px;
+    display: block;
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+}
+
+
+/**
+ * Others
+ */
+
+img {
+    max-width: 100%;
+}
+
+p {
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #24292e;
+}
+
+ul {
+    margin-top: 0;
+}
+
+li {
+    color: #24292e;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #24292e;
+}
+
+a:visited {
+    color: #0366d6;
+}
+
+h1,
+h2,
+h3 {
+    border-bottom: 1px solid #eaecef;
+    color: #111;
+    /* Darker */
+}
+
+code>* {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}</style>
+          <style type='text/css'>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}</style>
+        </body>
+      </html>

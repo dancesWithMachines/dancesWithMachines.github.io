@@ -14,6 +14,10 @@ os.chdir("./markdown")
 for file in glob.glob("*.md"):
     name=file.removesuffix(".md")
     shutil.copy(file, "README.md")
+    with open("README.md") as f:
+        content=f.read().replace("</br>","")
+    with open("README.md", "w") as f:
+        f.write(content)
     convert=subprocess.run(["node", markdown_to_html_path, name])
     with open("README.html") as f:
         content=f.read().replace("../", "./") \

@@ -9,7 +9,7 @@ if (os.path.isfile(path) == False or path.endswith(".md") == False):
     print("Not a valid file.")
     exit(1)
 
-output = open("OUTPUT.md", "x")
+output = open("OUTPUT.md", "w")
 
 path = os.path.abspath(path)
 
