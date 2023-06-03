@@ -21,7 +21,7 @@ for file in glob.glob("*.md"):
     convert=subprocess.run(["node", markdown_to_html_path, name])
     with open("README.html") as f:
         content=f.read().replace("../", "./") \
-                        .replace(".md",".html")
+                        .replace(".md",".html") 
     with open("README.html", "w") as f:
         f.write(content)
     shutil.move("README.html", "../" + name + ".html")

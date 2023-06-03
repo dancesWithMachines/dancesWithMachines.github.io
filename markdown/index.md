@@ -13,15 +13,18 @@ Here you can find information about my projects, docs or me.
 
 ## Articles on this page
 *[Klik - docs / user guide](./klik.md)*</br>
-*[dwm-pico-5110-LCD - Nokia 5110 LCD library for Raspberry Pi pico](pico_LCD_lib.md)*
+*[dwm-pico-5110-LCD - Nokia 5110 LCD library for Raspberry Pi pico](pico_LCD_lib.md)*</br>
+*[Running RetroPie on TV box](./RetroPie_on_Tv_box.md)*
 
 
 ## Projects
 I share my creations via youtube or github. Here are my favorite.
 
 *Klik - open source fingerbot* [[GitHub](https://github.com/dancesWithMachines/klik/wiki) | [Documentation](./klik.md) | [Thingiverse](https://www.thingiverse.com/thing:5632625) | [OSHWLab](https://oshwlab.com/timax_/klik)]</br>
+*Running RetroPie on TV box* [[Youtube](https://youtu.be/d9u-pe_GYpE) | [Article](./RetroPie_on_Tv_box.md)]</br>
 *Controlling automobile instrument cluster* [[GitHub](https://github.com/dancesWithMachines/Instrument-Cluster-controll-board) | [YouTube](https://www.youtube.com/watch?v=XNLJWUMKByM)]</br>
 *Poorman's NAS - DIY NAS on cheap* [[YouTube](https://www.youtube.com/watch?v=eTSuSAn0o7c)]</br>
+*Making a mini mac mini (arm computer from tv box)* [[YouTube](https://youtu.be/8Sfh7vml3gE)]</br>
 *DIY rack'alike* [[YouTube](https://youtu.be/Nbu95Gau4pY) | [Thingiverse](https://www.thingiverse.com/thing:5818255)]</br>
 *Headless gaming server* [[YouTube](https://youtu.be/9f23FhYmxMU)]
 
