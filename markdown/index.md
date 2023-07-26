@@ -74,8 +74,10 @@ Duties:
 
 ### Education
 **University of Gdańsk**</br>
-*October 2021 - July 2023 (ongoing)*</br>
+*October 2018 - July 2023*</br>
+`Bachelor's degree: Computer Science and Econometrics`</br>
 `Masters degree: Computer Science and Econometrics`
+
 
 ### Languages
 #### English
