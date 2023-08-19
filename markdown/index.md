@@ -32,7 +32,7 @@ I share my creations via youtube or github. Here are my favorite.
 *[Thinkz - Smartpen (article in Polish)](https://spidersweb.pl/bizblog/thinkz-dlugopis/)*</br>
 *[RetroPie, Without The Pi - Hackaday](https://hackaday.com/2023/06/06/retropie-without-the-pi/)*
 ## About me
-My name is Mateusz and I'm an intern developer at Intel Corp. while still studying Computer Science and Econometrics at University of Gdańsk. I create and share my private projects as Timax under "dancesWithMachines" name.
+My name is Mateusz. I create and share my private projects as Timax under "dancesWithMachines" name. I'm a former employee of Intel Corp, where I was developing storage management software for Linux.
 
 I have a strong need for feeling, that the stuff I do has some purpose. That's why I am a type of person who learns best by practicing. Overtime I acquired patience and steadfastness to solve various kinds of problems as well as ability to come up with unconventional solutions.
 
@@ -52,7 +52,7 @@ Click a shield to be redirected!</br>
 ### Experience
 #### Intel Corporation
 **Software development intern**</br>
-*August 2021 - Present*</br>
+*August 2021 - July 2023*</br>
 `Development of storage management software for Linux`</br>
 Skills / Knowledge:
 * Good C programming language and base knowlege of C#, bash and python;
