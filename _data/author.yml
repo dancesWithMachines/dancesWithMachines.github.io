@@ -1,0 +1,27 @@
+name: Mateusz Kusiak (Timax)
+dp: https://avatars.githubusercontent.com/u/44846363
+description: "
+  <p>
+    This is the personal blog of Mateusz Kusiak (Timax).
+  </p>
+  </br>
+  <p>
+    Not everything I do is worth a YouTube video or fits my usual content there.
+    This blog is where I document whatever I’m interested in at the moment.
+  </p>
+  <br/>
+  <p>
+    Check out my other media!
+  </P>
+"
+contact:
+  - title: youtube
+    url: https://www.youtube.com/@danceswithmachines_
+  - title: github
+    url: https://github.com/dancesWithMachines
+  - title: thingiverse
+    url: https://www.thingiverse.com/danceswithmachines
+  - title: linkedin
+    url: https://www.linkedin.com/in/mateusz-kusiak-695009260
+  - title: email
+    url: mailto:timax2@wp.pl
