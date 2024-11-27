@@ -8,7 +8,7 @@ categories: ["automotive", "hacking", "embedded"]
 The time has come to address the elephant, or rather a set of automotive junk, in the (living) room.
 ...and to encourage you to keep reading, here's the current state of said room:
 
-![Setup](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/setup.jpg>)
+![Setup](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/setup.jpg>)
 
 _Note: I’m lucky my girlfriend doesn’t care much about this._
 
@@ -52,7 +52,7 @@ Rather than starting with where I’m at now, let me take you through what I att
 
 I bought the cluster for 30zł (~$7) with shipping. It wasn’t in the best condition, 60% of the tabs holding the front clear panel in place were broken.
 
-![Broken tabs](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/broken-tabs.jpg>)
+![Broken tabs](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/broken-tabs.jpg>)
 
 I disassembled the cluster to clean it and check what ICs were used. I was almost certain the cluster relied on CAN bus to communicate, though the [service manual for the Alfa Romeo 159](https://aftersales.fiat.com/elearnsections/main.aspx?nodeID=939003534&languageID=2&modelID=939000000&valID=939000001&prodID=939000002&markID=2&dhb=INSTRUMENT%20PANEL%20-%20DESCRIPTION&modelName=Alfa%20-%20140%20-%20Alfa%20159&langDesc=English&sectionName=Impianto%20Elettrico&validityName=2.4%20JTD%2020V) mentioned:
 
@@ -60,7 +60,7 @@ I disassembled the cluster to clean it and check what ICs were used. I was almos
 
 At the time, I assumed they just didn’t want to share what protocol was used, so I rolled with the idea that it was CAN. It all made sense to me. The auxiliary cluster (as the manual calls it) has only four wires. I figured these must be VCC, GND, CAN HIGH, and CAN LOW. I also checked whether the main IC had an integrated CAN bus controller, and it does. So, it _had_ to be CAN, right?
 
-![Wires and IC](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/wires_and_ic.jpg>)
+![Wires and IC](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/wires_and_ic.jpg>)
 
 ## Connecting the Cluster to the PC
 
@@ -68,7 +68,7 @@ To send data frames to the cluster, I bought a [CANable v1.0](https://canable.io
 
 Once the debugger arrived, the only thing left was to power the cluster. I initially used a bench power supply, but I quickly got tired of dealing with cables sticking out of the cabinet. So, I figured... why not create a more _cursed_, yet (in my opinion) elegant solution?
 
-![Le power bay](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/power_bay.jpg>)
+![Le power bay](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/power_bay.jpg>)
 
 What you’re looking at is a [3.5" bay banana socket frontplate adapter](https://www.thingiverse.com/thing:6759175) I designed. The banana sockets are connected to my PC’s internal power supply to provide 12V (the same voltage level cars operate on) to the cluster. I harvested some old SATA extension cables to make it, so don’t worry, it’s not hard-wired.
 
@@ -90,7 +90,7 @@ If I recall correctly, the first thing I did after this "incident" was ask ChatG
 
 I disassembled the cluster again, and this time, I found it: the LIN transceiver. How did I miss it the first time? Well, it’s the only IC located on the front side of the PCB, somewhere in the marked area:
 
-![LIN IC location](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/lin-ic-location.jpg>)
+![LIN IC location](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/lin-ic-location.jpg>)
 
 I hadn’t removed the needles or the gauge background assembly initially because I assumed the engineers would’ve used the main IC’s CAN support.
 
@@ -148,7 +148,7 @@ The previous attempt was pretty discouraging, but I’ve already put so much eff
 
 In the first picture of this blog post, you might have noticed two clusters. Here’s a close-up:
 
-![Both clusters](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/both_clusters.jpg>)
+![Both clusters](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/both_clusters.jpg>)
 
 You probably see where I’m going with this. I decided to buy the main instrument cluster (the one on the bottom) as well. As I mentioned earlier, the auxiliary cluster (on top) is controlled by the main cluster. This means that if I connect the two, I should see some kind of activity on the bus.
 
@@ -167,7 +167,7 @@ If this sounds like a recipe for wire spaghetti, you’re absolutely right. And 
 
 To keep things clean, I designed a custom PCB to handle everything on that list.
 
-![PCB and Oscilloscope](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/pcb.jpg>)
+![PCB and Oscilloscope](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/pcb.jpg>)
 
 There’s nothing fancy about this PCB. It just handles all the necessary connections, probe points, and switches. I’m showing it here to emphasize how committed I am to this project. I even had the PCBs made by a popular PCB manufacturer. Since the minimum order quantity was five, I still have a few spares. If anyone’s interested in buying one, hit me up!
 
@@ -179,7 +179,7 @@ In the corner of the picture, you’ll notice I’ve hooked up an "oscilloscope.
 
 Finally, with everything set up, I could see activity on both the oscilloscope and in the uCCBViewer software. The auxiliary cluster even sprang to life, illuminating the gauges.
 
-![No data](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/no_data.jpg>)
+![No data](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/no_data.jpg>)
 
 But it’s not all sunshine and rainbows. Sure, I can see activity, but there’s a problem. While I see the IDs, I don’t see any data. And I’m pretty sure I _should_ see something.
 
@@ -209,11 +209,11 @@ Then I noticed something interesting in the [main cluster pinout manual](https:/
 
 As luck would have it, the boost pressure gauge is on the auxiliary cluster. And since I can generate a PWM signal with almost anything, this was worth a shot.
 
-![Arduino](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/arduino.jpg>)
+![Arduino](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/arduino.jpg>)
 
 One Arduino later, and _it’s confirmed!_ The data must indeed be flowing on the LIN bus. Unfortunately, it also confirms that the LUC and its software combo are not able to display that data. But hey, the turbo pressure gauge works!
 
-![Turbo](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/turbo.jpg>)
+![Turbo](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/turbo.jpg>)
 
 ...but where does that leave me?
 
@@ -263,14 +263,12 @@ If I want to create a standalone device using this cluster, I’ll need to devel
 
 In the end, I did not manage to control the auxiliary instrument cluster of the Alfa Romeo 159, but I do not announce defeat yet! Here's a little sneak peek of what's to come in part II, and if you read carefully, you know what kind of cursed adventures await me with this.
 
-![Foreshadowing](<../../assets/posts/hacking-car-instrument-cluser-(lin)-pt1/foreshadowing.jpg>)
+![Foreshadowing](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/foreshadowing.jpg>)
 
 I was hoping I could release this journey as a single YouTube video, but as you can see, it looks like everything is against me on this project. I had to just get it out of my head "on paper" so I could make space in my brain for new things and continue this project. Part two is coming, one way or another.
 
 Looking back at it, the real progress I made on this is next to none, but I know I already learned a few things along the way, and there is still much to come.
 That's why I don't feel like this time was wasted, nor am I discouraged. I know that failures are the most valuable lessons, even though I think my failure on this one comes from a limited toolset. I also believe that even if I don't have a working solution, I at least have this post to share, and who knows, maybe it'll help me one way or another in the future.
-
----
 
 # Links
 
