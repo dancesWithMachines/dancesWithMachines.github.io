@@ -28,12 +28,12 @@ for file in "$POSTS_DIR"/*.md; do
     if [[ ! -d "$target_dir" ]]; then
         # Create the directory
         mkdir -p "$target_dir"
-        echo "Created directory: $target_dir"
+        echo "Created assets directory: $target_dir"
         changes_made=true
     fi
 done
 
 # If no changes were made, print "No changes"
 if [[ "$changes_made" == false ]]; then
-    echo "No changes"
+    echo "No changes in assets file structure."
 fi
