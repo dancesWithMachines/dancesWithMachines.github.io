@@ -16,7 +16,7 @@ if [[ -z "$newest_signal_file" ]]; then
 fi
 
 # Get the newest directory in ./assets/posts/
-newest_post_dir=$(find ./assets/posts -type d -print0 | xargs -0 ls -td | head -n 1)
+newest_post_dir=$(ls -td ./assets/posts/* 2>/dev/null | head -n 1)
 
 # Prompt the user for a new filename
 read -p "Enter a new filename (leave blank to keep original): " new_filename
