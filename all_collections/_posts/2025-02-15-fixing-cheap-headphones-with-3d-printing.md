@@ -8,7 +8,7 @@ categories:
 
 Today's post is about fixing a pair of cheap headphones with 3D printing.
 
-# "You'll die when I allow it" approach
+## "You'll die when I allow it" approach
 
 ---
 
@@ -18,13 +18,13 @@ It so happened that my headphones broke recently, and I had to make a choice whe
 
 Long story short, since I recently don't feel like spending money on unnecessary things, I decided to accept the challenge and fix both pairs.
 
-# Edifier W800BT PLUS
+## Edifier W800BT PLUS
 
 ---
 
 I treated myself to a pair of wireless headphones (I believe) more than two years ago and chose the Edifier W800BT Plus. I needed headphones that weren't expensive, as I knew they'd take a beating during my daily commute to university. They managed to survive past my university phase, and to this day, I use them daily, as they sound good enough, battery life is excellent, and having no cables is convenient.
 
-## What broke & how I fixed it
+### What broke & how I fixed it
 
 Breaking the headphones was my fault, as I threw them on the desk with too much force. One of the speakers got physically damaged and started sounding flat and low.
 
@@ -39,7 +39,7 @@ So what's the issue when I have a 3D printer, right? I saw potential in the trim
 
 I'm glad to report that the headphones are working after the modifications. In terms of sound quality, the sound is more bass-heavy. I prefer the more natural sound of the stock units, but I’ve gotten used to it.
 
-# Sony MDR-RF855RK
+## Sony MDR-RF855RK
 
 ---
 
@@ -53,7 +53,7 @@ You see, FreeCAD uses [parametric modeling](https://www.sciencedirect.com/topics
 
 In the end, the model works, but it’s not free of mistakes (mostly related to FreeCAD handling floating points). The headphones are resurrected, and that’s all I care about.
 
-# Summing it up
+## Summing it up
 
 ---
 

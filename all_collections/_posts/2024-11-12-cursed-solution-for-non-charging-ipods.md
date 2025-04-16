@@ -9,7 +9,7 @@ Today's post is about replacing the battery in my cursed iPod Photo (4th gen). Y
 
 ![iPod Photo 4th gen](../../assets/posts/cursed-solution-for-non-charging-ipods/ipod.jpg)
 
-# Backstory
+## Backstory
 
 ---
 
@@ -19,7 +19,7 @@ I got into modding iPods after discovering [DankPods](https://www.youtube.com/@D
 
 Unfortunately, I soon discovered another issue: the iPod took days (yes, **days**) to charge. I recall reading on some forum that this could be due to a faulty charging IC, which I supposedly then confirmed with the built-in iPod hardware diagnostic test. Sadly, I can't find that source anymore, so you'll have to take my word for it. At the time, I was a broke student, so I went for the simplest solution I could think of, and thus the...
 
-# Spaghetti
+## Spaghetti
 
 ---
 
@@ -34,7 +34,7 @@ Does it work? **Also yes.**
 
 You can also admire my **precisely** selected heat shrinks for the job (sarcasm intended). All jokes aside, this solution keeps this 20-year-old device alive, which I think is better than letting it become just another piece of e-waste.
 
-# Battery Replacement
+## Battery Replacement
 
 ---
 
@@ -48,7 +48,7 @@ I think the "junky" look gives it a charm.
 
 With this "mod", the iPod acquired a new feature. :D
 
-# Why Bother?
+## Why Bother?
 
 ---
 

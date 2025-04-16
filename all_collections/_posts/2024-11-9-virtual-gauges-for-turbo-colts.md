@@ -9,13 +9,13 @@ I'm once again into a phase where I feel like experimenting with car electronics
 
 That project started to feel overwhelming, so I decided to do some "creative procrastination," as [Scott Yu-Jan](https://www.youtube.com/@ScottYuJan) calls it. I wanted to work on something that would bring me closer to custom gauges for my car without committing to another major project. That's why I made custom gauges for...
 
-# The Torque App
+## The Torque App
 
 ---
 
 [Torque](https://play.google.com/store/apps/details?id=org.prowl.torque) is a mobile app that, with the help of cheap Bluetooth [OBD2](https://www.csselectronics.com/pages/obd2-explained-simple-intro) adapters, can read and display a car's real-time parameters using various types of gauges and graphs. One of the app's cool features is the ability to create custom gauges, so naturally, I gave it a try.
 
-# Tools for Creating Gauges
+## Tools for Creating Gauges
 
 ---
 
@@ -23,7 +23,7 @@ It's worth noting that Torque doesn't include a built-in gauge creator, so youâ€
 
 For reasons I'll explain later, I also used [FontCreator](https://www.high-logic.com/font-editor/fontcreator). As an open-source enthusiast, I initially tried [FontForge](https://fontforge.org/en-US/), but I couldn't get it to produce usable results.
 
-# The Car
+## The Car
 
 ---
 
@@ -40,7 +40,7 @@ Of course, comparing a Miata to a Colt is like comparing apples to oranges. The 
 
 Despite its sporty character, the Colt lacks both a boost pressure gauge and a coolant temperature gauge, so that is something I aim to change.
 
-# Getting Reference Material
+## Getting Reference Material
 
 ---
 
@@ -50,7 +50,7 @@ I wanted my virtual gauges to resemble the white OEM gauges from the turbo trim.
 
 I also took reference photos of the assembled cluster and the car interior. These helped me sample colors, create patterns, and even extract elements like the needle for use in my virtual gauges.
 
-# The Result
+## The Result
 
 ---
 
@@ -69,7 +69,7 @@ What I think turned out well:
 
 I believe, this is as close as I can get given...
 
-# The Limitations
+## The Limitations
 
 ---
 
@@ -88,13 +88,13 @@ Main limitations include:
 - Some settings affect gauge types they shouldn't.
 - No font size changes for displays.
 
-# Download
+## Download
 
 ---
 
 You can download the source files (raw photos, scans, and the theme) from [this repository](https://github.com/dancesWithMachines/cz_turbo_theme), but note that I still have to test the gauges in practice. The project is open source, so feel free to contribute. If the theme becomes downloadable directly within the Torque app, Iâ€™ll update this post accordingly.
 
-# Summing It All Up
+## Summing It All Up
 
 ---
 

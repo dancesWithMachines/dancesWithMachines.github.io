@@ -9,7 +9,7 @@ Today’s post is about bringing a broken Blue Yeti microphone back to life.
 My brother, who runs a page dedicated to old-timer cars, recently decided to expand into video content for YouTube.
 Naturally, he wanted to invest in a good microphone, specifically the iconic [Blue Yeti](https://en.wikipedia.org/wiki/Blue_Microphones).
 
-# Yeti and Me
+## Yeti and Me
 
 ---
 
@@ -26,7 +26,7 @@ All the popular YouTubers used it then, and still many use it today.
 The best I could manage back then was a [Trust Starzz mic](https://www.farnell.com/datasheets/2615079.pdf) for around 40zł (~$11 in 2015), and even that felt like a serious investment.
 Fast forward to today, after all those years, I finally...
 
-# I Bought a Blue Yeti
+## I Bought a Blue Yeti
 
 ---
 
@@ -40,7 +40,7 @@ Here's a closer look:
 
 ![Broken port](../../assets/posts/scavenging-a-microphone/broken_port.jpg)
 
-# The Repair
+## The Repair
 
 ---
 
@@ -58,7 +58,7 @@ Here’s the process:
 
 _Note: The new port only has two support legs. I used a port from a PS3 controller since the pinout matches._
 
-# The Result
+## The Result
 
 ---
 
@@ -66,7 +66,9 @@ Success! The microphone is back in action, and after some testing, it’s now wi
 
 ![Microphone assembled](../../assets/posts/scavenging-a-microphone/job_done.jpg)
 
-### Was it worth it?
+## Was it worth it?
+
+---
 
 The cheapest new Blue-branded Yeti I could find was 492zł (~$121) on Amazon.
 Used, (seemingly) working ones can be found for 200zł (~$49).

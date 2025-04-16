@@ -7,11 +7,11 @@ categories: ["embedded"]
 
 Today's post is about my thoughts on the Arduino platform and non-Arduino microcontrollers.
 
-# A Bit of Backstory (as Always)
+## A Bit of Backstory (as Always)
 
 ---
 
-## My Experience with the Arduino Platform
+### My Experience with the Arduino Platform
 
 Arduino is a popular platform among tinkerers, beginners in coding/electronics, and hobbyists who love making stuff. It made embedded programming simple.
 
@@ -21,7 +21,7 @@ With that [machine-generated data](https://www.indicative.com/resource/machine-g
 
 ![Contraption](../../assets/posts/back-to-the-roots-with-pico-and-arduino/contraption.jpg)
 
-## Outgrowing the Arduino
+### Outgrowing the Arduino
 
 This project made me realize that, to make Arduino accessible to everyone, many shortcuts were taken that made it less suitable for "professional" use. The main issues I encountered were:
 
@@ -35,7 +35,7 @@ I based my thesis project on an Arduino Nano clone and faced multiple issues. De
 
 Finally, the Arduino language itself is platform-specific. While there's nothing inherently wrong with it, I knew that if I wanted a future in programming, I needed to move to C/C++, the industry standard for embedded systems. With these limitations in mind, I decided to transition to the Raspberry Pi Pico, the newest platform at the time.
 
-## To the Point
+### To the Point
 
 So why am I telling you all this? Well, I recently bought a small circular TFT display from AliExpress to experiment with. My plan is to use it for custom car gauges. If you're familiar with the hobbyist embedded world, you know that hardware without a library is pretty much useless, and this brings us back to the Arduino platform.
 
@@ -49,17 +49,17 @@ I found the [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library, which suppor
 
 Faced with the option of rewriting the library for the Pico SDK or using the Arduino IDE, I went with the latter. ¯\\_(ツ)_/¯
 
-# Setting Up Arduino IDE for the Pico
+## Setting Up Arduino IDE for the Pico
 
 ---
 
-## Environment
+### Environment
 
 At first, I tried to avoid the Arduino IDE and use VS Code with the "Arduino" extension... but it turned out it [become deprecated](https://github.com/microsoft/vscode-arduino/issues/1760) since I last checked. Thanks, Microsoft. It looked like I had no choice but to use the Arduino IDE and say goodbye to my precious extensions. Surprisingly, the rest of the process went smoothly.
 
 I was suprised that Raspberry Pi Pico is now supported out of the box in the Arduino IDE. However, I downloaded a [third-party Pico board package](https://github.com/earlephilhower/arduino-pico) as recommended by the library docs. I installed the library directly in the Arduino IDE, edited the `User_Setup` file as per the documentation, connected the screen to the Pico, uploaded the example sketch, and got it working!
 
-## Connecting the Screen
+### Connecting the Screen
 
 This section is mostly for future me, so here's how to connect the display to the Pico. The labels on the display PCB are confusing, suggesting I2C instead of SPI (e.g. RST, CS, DS, SDA, SCL). The Pico doesn't make it easier, labeling SPI pins as TX/RX instead of MOSI/MISO, which can be misleading. Below is a table of how to connect the display to the Pico:
 
@@ -75,7 +75,7 @@ This section is mostly for future me, so here's how to connect the display to th
 
 _Note: I used the default SPI pins from the [Pico pinout](https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html), with the other two chosen sequentially._
 
-## Debugger
+### Debugger
 
 Setting up the debugger was surprisingly easy. The Pico can be used as a hardware debugger. I downloaded the [correct Picoprobe firmware](https://github.com/earlephilhower/arduino-pico/discussions/1299) and flashed it to the Pico by simply draging and dropping the binary file to Pico in flash mode. Then, following [the documentation](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf), I connected everything.
 
@@ -83,7 +83,7 @@ Finally, I set the upload method to Picoprobe in the Arduino IDE, and voilà! A 
 
 ![Debugger](../../assets/posts/back-to-the-roots-with-pico-and-arduino/arduide.jpg)
 
-## Result
+### Result
 
 Uploading the example sketch confirmed the setup works.
 
@@ -91,7 +91,7 @@ Uploading the example sketch confirmed the setup works.
 
 And this is where I'm at currently. I've experiments to run, there is research to be done...
 
-# Standing here...
+## Standing here...
 
 ---
 

@@ -13,7 +13,7 @@ But enough about that, let’s get to the main topic of this post.
 
 This post is a bit different. I spent the holiday season properly resting and reading (guides, to be specific), so I don’t have any creative projects to share right now. Since I gave myself permission to talk about anything I want on this blog, I’ll use this post to ease back into the habit of posting stuff here after the holiday break, and to explain how Apple is screwing over their users (shocking, I know) with the so-called "Globe Key."
 
-# macOS Window Tiling
+## macOS Window Tiling
 
 ---
 
@@ -29,11 +29,11 @@ The other way to tile windows is by hovering over the green (full-screen) window
 
 Luckily, there’s a third method... **which I can’t use!**
 
-# The Globe Key Scam
+## The Globe Key Scam
 
 ---
 
-## Tiling Windows with Keyboard Shortcuts
+### Tiling Windows with Keyboard Shortcuts
 
 Window tiling can also be managed using keyboard shortcuts. If you search Google for these shortcuts, you’ll find they all require the `fn` (function) key. Even [Apple's own website](https://support.apple.com/guide/mac-help/mac-window-tiling-icons-keyboard-shortcuts-mchl9674d0b0/15.0/mac/15.0) says so:
 
@@ -54,7 +54,7 @@ Now, take a look at the photo below. On the left is my Logitech K860 keyboard; o
 
 I think you see where this is going...
 
-## Want to Use Shortcuts? Buy Our Keyboard
+### Want to Use Shortcuts? Buy Our Keyboard
 
 That’s right, the Logitech keyboard has only the `fn` key, while the built-in MacBook keyboard combines `fn` and `globe` into one key. This renders all shortcuts using the globe key inaccessible on non-Apple keyboards.
 
@@ -68,7 +68,7 @@ A lazy research (googling "Apple globe key") confirms this. [This Reddit post](h
 
 Why does Apple do this? It’s anyone’s guess. Some say it’s to push customers toward buying their peripherals. Others speculate that Apple might want to charge OEMs a fee for “official support”, similar to the MFi program for Lightning cables. So far, I haven’t found any [third-party keyboard with globe key support](https://www.reddit.com/r/mac/comments/1by2q3i/is_there_a_keyboard_with_specific_globe_key_like/). I expect I'll be hearing more about this issue in the future.
 
-# Workaround and My Take
+## Workaround and My Take
 
 ---
 
@@ -77,4 +77,4 @@ As for managing my windows, I’ve already reinstalled [Rectangle](https://recta
 Regarding Apple, this whole situation makes me angry and sad at the same time. As Louis Rossmann often says, someone had to deliberately spend time and resources to make others lives more miserable. I used a word "scam" in the title because I refuse to believe they couldn't have implemented this differently. They could have allowed custom shortcuts or whatever. Even worse, their own website lists the `fn` key for shortcuts when it’s obviously not used. I refuse to believe this is unintentional.
 
 Bottom line: I can’t use a built-in macOS feature because I don’t have an Apple keyboard.  
-#MyLastMacEver
+##MyLastMacEver

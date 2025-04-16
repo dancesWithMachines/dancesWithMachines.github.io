@@ -12,11 +12,11 @@ The time has come to address the elephant, or rather a set of automotive junk, i
 
 _Note: I’m lucky my girlfriend doesn’t care much about this._
 
-# Backstory
+## Backstory
 
 ---
 
-## The Past
+### The Past
 
 In the past, I played with car instrument clusters. My first project was a [Golf Mk.3](<https://en.wikipedia.org/wiki/Volkswagen_Golf#Third_generation_(Mk3/A3,_Typ_1H/1E/1V;_1991)>) based shelf clock, and I even made a video about it.
 
@@ -30,7 +30,7 @@ I consider that attempt cheating, though. I connected a CAN bus adapter, receive
 
 In the end, I just hacked directly into the motors and got them moving with an Arduino.
 
-## The Not-So-Distant Past
+### The Not-So-Distant Past
 
 While browsing YouTube, I stumbled upon this video:
 
@@ -42,13 +42,13 @@ After watching this, I thought: _"Why didn’t I think of that back then?"_
 
 And with that inspiration, I headed over to Allegro (the Polish equivalent of eBay) to look for an Alfa Romeo 159 auxiliary instrument cluster. Why? Initially, I wanted to integrate it into my car, thinking it might fit (spoiler: not a chance). My car lacks a coolant temperature gauge and a turbo gauge, and I thought it would be quite an accomplishment to integrate a cluster from a completely different car (model and manufacturer) into mine.
 
-# Hacking the Cluster — Attempt I
+## Hacking the Cluster — Attempt I
 
 ---
 
 Rather than starting with where I’m at now, let me take you through what I attempted in chronological order. Spoiler: it didn’t go according to plan.
 
-## Overly Optimistic
+### Overly Optimistic
 
 I bought the cluster for 30zł (~$7) with shipping. It wasn’t in the best condition, 60% of the tabs holding the front clear panel in place were broken.
 
@@ -62,7 +62,7 @@ At the time, I assumed they just didn’t want to share what protocol was used, 
 
 ![Wires and IC](<../../assets/posts/hacking-car-instrument-cluster-(lin)-pt1/wires_and_ic.jpg>)
 
-## Connecting the Cluster to the PC
+### Connecting the Cluster to the PC
 
 To send data frames to the cluster, I bought a [CANable v1.0](https://canable.io/), a USB CAN debugger/adapter. I chose this one because it was cheap and supported natively by [Linux can-utils](https://github.com/linux-can/can-utils), meaning I wouldn’t need any extra software, just the way I like it.
 
@@ -72,7 +72,7 @@ Once the debugger arrived, the only thing left was to power the cluster. I initi
 
 What you’re looking at is a [3.5" bay banana socket frontplate adapter](https://www.thingiverse.com/thing:6759175) I designed. The banana sockets are connected to my PC’s internal power supply to provide 12V (the same voltage level cars operate on) to the cluster. I harvested some old SATA extension cables to make it, so don’t worry, it’s not hard-wired.
 
-## I Did Something Stupid
+### I Did Something Stupid
 
 I connected the cluster to the adapter, supplied power, and hooked everything up to the PC. Everything seemed fine. I installed the necessary packages, learned a bit about using CAN on Linux, and wrote some bash scripts to spam the cluster with data frames across the full ID range, just like the author in the video I mentioned earlier.
 
@@ -80,11 +80,11 @@ And... nothing.
 
 No matter what I tried, I couldn’t receive anything from the cluster (assuming it sends any data), nor could I make it respond. Something, however, made me double-check the connections with a multimeter. That’s when I discovered the problem: for some reason, the supposedly CAN lines were at 12V.
 
-### Why Is That Bad?
+#### Why Is That Bad?
 
 Well, CAN [operates at less than 5V](https://www.ti.com/document-viewer/lit/html/SSZTCN3) and I just somehow, inadvertently sent 12V pulses to the USB port. Luckily, the PC still works, though I'm not so sure about the state of the CAN adapter. Honestly, I’d rather lose a 35zł adapter than my year-old PC, but still I admit that was a stupid thing to do!
 
-## The Mystery of 12V
+### The Mystery of 12V
 
 If I recall correctly, the first thing I did after this "incident" was ask ChatGPT about other automotive buses that operate at 12V. The answer? [**LIN — Local Interconnect Network**](https://www.csselectronics.com/pages/lin-bus-protocol-intro-basics).
 
@@ -96,17 +96,17 @@ I hadn’t removed the needles or the gauge background assembly initially becaus
 
 Later, I confirmed the auxiliary cluster uses LIN by analyzing wiring diagrams. [This diagram](https://4cardata.info/elearn/939/2/939000002/939000003/939000003/939011715) showed that the auxiliary panel connects to the main panel, and the [main panel’s pinout diagram](https://www.manualslib.com/manual/1110450/Alfa-Romeo-159.html?page=272#manual) clearly states `LIN bus`.
 
-## Oh, the Misery...
+### Oh, the Misery...
 
 And that’s how what should’ve been a straightforward automotive instrument cluster hacking project turned into a challenge to get it working _at all costs_.
 
-# Hacking the Cluster — Attempt II
+## Hacking the Cluster — Attempt II
 
 ---
 
 After discovering that the cluster operates on a LIN network, I had to come up with a new plan.
 
-## Obtaining a LIN Bus Adapter
+### Obtaining a LIN Bus Adapter
 
 Affordable LIN bus adapters are practically nonexistent. The options are either professional debugging kits that cost thousands or sketchy Aliexpress adapters, which require downloading software from some mysterious Chinese server (foreshadowing) and learning Mandarin to make them work.
 
@@ -118,7 +118,7 @@ Still, my options were limited: either an open-source product I could modify if 
 
 So, I pulled the trigger and bought the LUC adapter. It cost me 131zł (~$32) with shipping.
 
-## The Setup
+### The Setup
 
 Since my setup was already prepared, installing the LUC was just a matter of swapping out the CANable for it. According to the LUC’s [documentation](https://ucandevices.github.io/ulc.html), it should work with Linux can-utils:
 
@@ -132,19 +132,19 @@ The problem? uCCBViewer is a GUI-based app, and my PC/server doesn’t have a GP
 
 If I were to do this today, though, I’d probably just set up a separate VM instead of installing it directly on my server.
 
-## Here We Go Again
+### Here We Go Again
 
 With the setup ready, I tried the same trick I used for CAN: spamming IDs with data. Since [LIN only supports 64 IDs](https://www.csselectronics.com/pages/lin-bus-protocol-intro-basics), compared to CAN’s [11-bit addresses](https://tractorhacking.github.io/IdExplanation/), it’s much simpler. I could manually check each ID without needing to automate anything.
 
 But once again, no matter what I tried, nothing happened on the cluster. It didn’t respond to my attempts, and I didn’t receive any data from it either.
 
-# Hacking the Cluster -- Attempt III
+## Hacking the Cluster -- Attempt III
 
 ---
 
 The previous attempt was pretty discouraging, but I’ve already put so much effort into this project that there’s no way I’m giving up halfway through.
 
-## There Were Two Clusters, Right?
+### There Were Two Clusters, Right?
 
 In the first picture of this blog post, you might have noticed two clusters. Here’s a close-up:
 
@@ -152,7 +152,7 @@ In the first picture of this blog post, you might have noticed two clusters. Her
 
 You probably see where I’m going with this. I decided to buy the main instrument cluster (the one on the bottom) as well. As I mentioned earlier, the auxiliary cluster (on top) is controlled by the main cluster. This means that if I connect the two, I should see some kind of activity on the bus.
 
-## Custom PCB
+### Custom PCB
 
 Now that I have both clusters, here’s what I need to do:
 
@@ -171,11 +171,11 @@ To keep things clean, I designed a custom PCB to handle everything on that list.
 
 There’s nothing fancy about this PCB. It just handles all the necessary connections, probe points, and switches. I’m showing it here to emphasize how committed I am to this project. I even had the PCBs made by a popular PCB manufacturer. Since the minimum order quantity was five, I still have a few spares. If anyone’s interested in buying one, hit me up!
 
-### Oscilloscope
+#### Oscilloscope
 
 In the corner of the picture, you’ll notice I’ve hooked up an "oscilloscope." Now, let’s be clear, this ain't the most precise piece of equipment in the world, but any oscilloscope is better than no oscilloscope. While I can’t use it to physically decode signals (that is a way of doing it), it at least confirms there’s activity on the bus.
 
-## A Gleam of Hope
+### A Gleam of Hope
 
 Finally, with everything set up, I could see activity on both the oscilloscope and in the uCCBViewer software. The auxiliary cluster even sprang to life, illuminating the gauges.
 
@@ -183,13 +183,13 @@ Finally, with everything set up, I could see activity on both the oscilloscope a
 
 But it’s not all sunshine and rainbows. Sure, I can see activity, but there’s a problem. While I see the IDs, I don’t see any data. And I’m pretty sure I _should_ see something.
 
-# Hacking the Cluster -- Attempt 3.5
+## Hacking the Cluster -- Attempt 3.5
 
 ---
 
 I don’t consider this a full attempt. At this point, I just needed to prove to myself that I wasn’t descending into madness.
 
-## What Am I Even Talking About?
+### What Am I Even Talking About?
 
 The auxiliary instrument cluster has two data lines:
 
@@ -199,7 +199,7 @@ The auxiliary instrument cluster has two data lines:
 
 I confirmed that I don’t need the second line for the cluster to illuminate, which means _some_ data is definitely flowing on the LIN bus. I just can’t see it.
 
-## Proving the Theory
+### Proving the Theory
 
 To prove my theory, I needed to get the main cluster to drive the auxiliary cluster. I connected the CAN adapter to the main cluster and tried spoofing CAN frames, as I did before, but with no success. At this point, I wasn’t sure if I was doing something wrong, if the adapter had been fried during "the incident", or if it never worked to begin with.
 
@@ -217,19 +217,19 @@ One Arduino later, and _it’s confirmed!_ The data must indeed be flowing on th
 
 ...but where does that leave me?
 
-# Hacking the Cluster - Attempt IV
+## Hacking the Cluster - Attempt IV
 
 ---
 
 For this attempt, I wanted to see if the issue was due to a mismatched baud rate. Perhaps my cluster was using a non-standard rate, and that’s why I was seeing garbage data.
 
-## Action Recompilation
+### Action Recompilation
 
 How do I even start explaining this…? Out of the box, the LUC firmware supports two baud rates: **19200** and **9600**. Later, I discovered hidden firmware releases in the [LUC GitHub repository](https://github.com/uCAN-LIN/LinUSBConverter/releases). Among these, version 2.0 **HAD** (emphasis on _had_, because it was removed in later versions) support for custom speeds. However, this feature was implemented with a different parameter than the two base speeds, and the GUI app still had only the default rates hardcoded. So, yeah… I can't make sense of it either.
 
 To work around this without rewriting the GUI app, I needed to modify the LUC firmware. The idea was to set the custom baud rate directly in the firmware code, so that when I selected **9600** baud in the app, the adapter would actually operate at my specified custom speed.
 
-## The Quest for Firmware Customization
+### The Quest for Firmware Customization
 
 And thus began the saga.
 
@@ -243,11 +243,11 @@ I spent hours poring over comments, pull requests, and GitHub issues left behind
 
 What should have been a half-hour task took **multiple evenings** of frustration. But in the end, I managed to compile the firmware. Victory?
 
-## But of Course, There’s a Catch
+### But of Course, There’s a Catch
 
 Even with the firmware compiled, the GUI app behaved bizarrely. To avoid freezing everything, I had to select **9600 baud** first in the app, otherwise it and the LUC locked up. This quirk wasn’t limited to my compiled firmware; it happened with the official GitHub releases as well. Why? I don’t know. At this point, I didn’t even want to know. I wasted another evening assuming my compiled firmwares were corrupted before realizing it was just another “feature.” Fantastic.
 
-## Ok, But Seriously...
+### Ok, But Seriously...
 
 _Breathe in… Breathe out…_
 
@@ -257,7 +257,7 @@ I recompiled the firmware with various baud rates, none worked. My frustration r
 
 If I want to create a standalone device using this cluster, I’ll need to develop my own solution anyway. But first, I need to figure out what the LIN bus frames actually look like. Until then, I’m stuck.
 
-# Summing it Up
+## Summing it Up
 
 ---
 
@@ -270,7 +270,7 @@ I was hoping I could release this journey as a single YouTube video, but as you 
 Looking back at it, the real progress I made on this is next to none, but I know I already learned a few things along the way, and there is still much to come.
 That's why I don't feel like this time was wasted, nor am I discouraged. I know that failures are the most valuable lessons, even though I think my failure on this one comes from a limited toolset. I also believe that even if I don't have a working solution, I at least have this post to share, and who knows, maybe it'll help me one way or another in the future.
 
-# Links
+## Links
 
 ---
 

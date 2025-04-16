@@ -46,3 +46,11 @@ Content of this website is the property of Mateusz Kusiak (Timax).
    ```bash
    bundle exec jekyll serve --livereload
    ```
+
+## Styling
+
+Here are few rules for post styling:
+
+- No headers is fine for short posts;
+- Use headers H2 and up, the biggest header should be post title;
+- (Only) H2 headers should be followed by horizontal rule;
