@@ -58,7 +58,7 @@ header {
 }
 main {
   margin: 0 auto;
-  max-width: 650px;
+  max-width: 800px;
   padding: 3rem 0 4rem 0;
 }
 .article {
@@ -171,7 +171,8 @@ main {
 }
 .content img {
   max-width: 100%;
-  margin: 1rem 0;
+  margin: 1rem auto;
+  display: block;
 }
 .content img.emoji {
   margin: 0 !important;
