@@ -33,7 +33,7 @@ fi
 cat <<EOF > "$filename"
 ---
 layout: post
-title: $title
+title: "$title"
 date: $current_time
 categories: $formatted_categories
 ---
