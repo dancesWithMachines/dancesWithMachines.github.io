@@ -1,4 +1,15 @@
 <footer>
-  <p>&copy; {{ 'now' | date: "%Y" }} | {{site.title}}</p>
+  <p>&copy; {{ 'now' | date: "%Y" }} | {{ site.title }}</p>
+  <p class="footer-text">
+    {{ site.data.footer.donate }}
+    <a
+      href="{{ site.data.footer.paypal }}"
+      data-base-url="{{ site.baseurl }}"
+      class="donate-button"
+      target="_blank"
+    >
+      donation </a
+    >to help me develop.
+  </p>
 </footer>
 <script src="{{site.baseurl}}/assets/js/mode.js" defer></script>
