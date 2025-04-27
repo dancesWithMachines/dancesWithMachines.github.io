@@ -26,6 +26,11 @@ I'm well aware that you can put together a much better NAS for the price of a Pi
 
 If this sounds like something you're into, follow along to watch me build, configure, and break possibly the slowest, yet the cutest storage server in existence.
 
+...or if you want to skip to next part of the series, here's the list:
+
+- [**P1: Custom Case & Hardware**]() (current)
+- [P2: Overclocking & Power Usage](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
+
 ## Part One: Custom Case & Hardware
 
 ---
@@ -236,4 +241,4 @@ That wraps up this blog post. When the other parts of this series are published,
 
 ![TBC](../../assets/posts/pi-zero-storage-server-shenanigans-pt-1-custom-case--hardware/tbc.jpeg)
 
-UwU
+[Next part -->](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
