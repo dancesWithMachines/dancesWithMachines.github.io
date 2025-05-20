@@ -30,6 +30,7 @@ If this sounds like something you're into, follow along to watch me build, confi
 
 - [**P1: Custom Case & Hardware**]() (current)
 - [P2: Overclocking & Power Usage](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
+- [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
 
 ## Part One: Custom Case & Hardware
 

@@ -15,6 +15,7 @@ If you want to catch up on what I've done so far, check out the previous parts:
 
 - [P1: Custom Case & Hardware](../../posts/pi-zero-storage-server-shenanigans-pt-1-custom-case-hardware/)
 - [**P2: Overclocking & Power Usage**]() (current)
+- [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
 
 ## Part Two: Overclocking
 
@@ -253,4 +254,4 @@ The resulting backup image is only ~745 MB. Noice!
 
 Wrapping up this blog post... I’ve managed to increase the Pi's CPU frequency from the stock 1 GHz to 1.35 GHz per core, measure the power used by the setup, and create a backup image so that each approach for configuring it as a storage server has a clean start in the future. Coming next is probably creating a simple storage server with `mdadm` and Samba, but we’ll see how it goes.
 
-[<- Previous part](../pi-zero-storage-server-shenanigans-pt-1-custom-case-hardware/)
+[<- Previous part](../pi-zero-storage-server-shenanigans-pt-1-custom-case-hardware/) \| [Next part ->](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
