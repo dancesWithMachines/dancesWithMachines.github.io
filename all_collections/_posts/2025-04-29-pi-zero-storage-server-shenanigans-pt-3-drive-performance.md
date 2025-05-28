@@ -16,6 +16,7 @@ If you want to catch up on what I've done so far, check out the previous parts:
 - [P1: Custom Case & Hardware](../../posts/pi-zero-storage-server-shenanigans-pt-1-custom-case-hardware/)
 - [P2: Overclocking & Power Usage](../../posts/pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
 - [**P3: Drive Performance**]() (current)
+- [P4: mdadm & Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)
 
 ## Part Three: Drive Performance
 
@@ -296,4 +297,4 @@ In this blog post, I managed to measure the read/write performance of the drives
 
 In the next post, we'll set up a basic storage server using `mdadm` and Samba, explore available RAID levels and their performance, and finally, test transfer speeds over the network.
 
-[← Previous part](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
+[← Previous part](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/) \| [Next part ->](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)

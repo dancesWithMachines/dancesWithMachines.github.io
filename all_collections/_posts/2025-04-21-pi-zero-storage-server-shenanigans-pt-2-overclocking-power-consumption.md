@@ -16,6 +16,7 @@ If you want to catch up on what I've done so far, check out the previous parts:
 - [P1: Custom Case & Hardware](../../posts/pi-zero-storage-server-shenanigans-pt-1-custom-case-hardware/)
 - [**P2: Overclocking & Power Usage**]() (current)
 - [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
+- [P4: mdadm & Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)
 
 ## Part Two: Overclocking
 
