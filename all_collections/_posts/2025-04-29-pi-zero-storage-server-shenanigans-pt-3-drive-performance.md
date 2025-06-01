@@ -17,6 +17,7 @@ If you want to catch up on what I've done so far, check out the previous parts:
 - [P2: Overclocking & Power Usage](../../posts/pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
 - [**P3: Drive Performance**]() (current)
 - [P4: mdadm & Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)
+- [P5: OpenMediaVault](../pi-zero-storage-server-shenanigans-pt-5-openmediavault)
 
 ## Part Three: Drive Performance
 

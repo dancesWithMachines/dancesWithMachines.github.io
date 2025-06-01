@@ -32,6 +32,7 @@ If this sounds like something you're into, follow along to watch me build, confi
 - [P2: Overclocking & Power Usage](../pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
 - [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
 - [P4: mdadm & Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)
+- [P5: OpenMediaVault](../pi-zero-storage-server-shenanigans-pt-5-openmediavault)
 
 ## Part One: Custom Case & Hardware
 

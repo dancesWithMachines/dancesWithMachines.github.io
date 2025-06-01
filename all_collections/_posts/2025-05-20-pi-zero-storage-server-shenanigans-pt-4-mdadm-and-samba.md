@@ -17,6 +17,7 @@ If you want to catch up on what I've done so far, check out the previous parts:
 - [P2: Overclocking & Power Usage](../../posts/pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
 - [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
 - [**P4: Mdadm and Samba**]() (CURRENT)
+- [P5: OpenMediaVault](../pi-zero-storage-server-shenanigans-pt-5-openmediavault)
 
 ## Part Four: mdadm & Samba
 
@@ -320,4 +321,4 @@ It’s about what I observed, but the results are all over the place. It oscilla
 
 In the upcoming, possibly last part of the series, I'll attempt to install OpenMediaVault just to see how well it works.
 
-[← Previous part](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
+[← Previous part](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/) \| [Next part ->](../pi-zero-storage-server-shenanigans-pt-5-openmediavault)
