@@ -1,5 +1,26 @@
 #!/bin/bash
 
+fetch_categories() {
+  find ./all_collections/_posts -name "*.md" | while read -r file; do
+    # Extract the line before the second '---' in each file
+    awk '
+      BEGIN { dash_count = 0 }
+      /^---/ {
+        dash_count++
+        if (dash_count == 2) {
+          print prev_line
+          exit
+        }
+      }
+      { prev_line = $0 }
+    ' "$file"
+  done | \
+  sed -E 's/^.*\[(.*)\].*$/\1/' | \
+  tr ',' '\n' | \
+  sed -E 's/^[[:space:]]*"([^"]+)"[[:space:]]*$/\1/' | \
+  sort -u
+}
+
 # Check if the current directory path contains "scripts"
 if [[ "$PWD" == *"/scripts"* ]]; then
     echo "This script must be executed at the root of the repository."
@@ -18,6 +39,9 @@ current_time=$(date +"%Y-%m-%d %H:%M")
 
 # Create the filename
 filename="./all_collections/_posts/${current_date}-${sanitized_title}.md"
+
+echo "Available categories are:"
+fetch_categories
 
 # Prompt for categories
 read -p "Enter categories (comma-separated, leave empty for none): " categories
