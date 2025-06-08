@@ -34,6 +34,10 @@ If this sounds like something you're into, follow along to watch me build, confi
 - [P4: mdadm & Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba/)
 - [P5: OpenMediaVault](../pi-zero-storage-server-shenanigans-pt-5-openmediavault)
 
+I've also made a YouTube video that showcases the project:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4UGqJmxEyAk?si=-xSDnkFdW9fzZmPv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Part One: Custom Case & Hardware
 
 ---

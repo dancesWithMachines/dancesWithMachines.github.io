@@ -17,7 +17,11 @@ If you want to catch up on what I've done so far, check out the previous parts:
 - [P2: Overclocking & Power Usage](../../posts/pi-zero-storage-server-shenanigans-pt-2-overclocking-power-consumption/)
 - [P3: Drive Performance](../pi-zero-storage-server-shenanigans-pt-3-drive-performance/)
 - [P4: Mdadm and Samba](../pi-zero-storage-server-shenanigans-pt-4-mdadm-and-samba)
-- [**P5: OpenMediaVault**]() (CURRENT)
+- [**P5: OpenMediaVault**]() (current)
+
+I've also made a YouTube video that showcases the project:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4UGqJmxEyAk?si=-xSDnkFdW9fzZmPv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Part Five: OpenMediaVault
 
