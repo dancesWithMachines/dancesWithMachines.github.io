@@ -3,8 +3,10 @@ markdown: kramdown
 
 # Left this to respect original author.
 author:
-  name: Sharad Raj Singh Maurya
-  email: dev_sharad@outlook.com
+  name: Mateusz Kusiak (Timax)
+  email: mkusiak.dwm@gmail.com
+# The creator of the theme is Sharad Raj Singh Maurya (dev_sharad@outlook.com)
+# I had to change this so it displays properly on RSS readers (Thanks Ramiro!).
 
 plugins:
   - jemoji
