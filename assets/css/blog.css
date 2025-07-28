@@ -217,16 +217,22 @@ main {
   }
   header {
     flex-direction: column;
-    gap: 3rem;
+    padding: 0 0 2rem 0;
+  }
+  .header-top-line {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
   }
   header #dark-mode-toggle {
+    margin-top: 0;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    align-self: flex-end;
+    align-self: flex-start;
   }
   header .site-title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
