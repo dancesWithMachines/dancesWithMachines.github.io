@@ -195,7 +195,7 @@ RAID 10?
 
 Well, a bit better, I guess?
 
-### Oh the misery — sticking with RAID 10
+### Oh the misery - sticking with RAID 10
 
 Well, I expected nothing less from 4 flash drives attached via a USB 2.0 hub. While it's fun to experiment, I see no real practical use for such a setup. ...but since we've come this far, let's continue this misery.
 

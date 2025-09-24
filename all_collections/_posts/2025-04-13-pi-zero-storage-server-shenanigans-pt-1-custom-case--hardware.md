@@ -42,7 +42,7 @@ I've also made a YouTube video that showcases the project:
 
 ---
 
-In this particular blog post, I'm gonna focus on the hardware side of things: how I designed and printed the case, what hardware is needed, and how it all comes together. Basically, this is gonna be a computer build report — the difference being that the "computer" is a Raspberry Pi, the case was designed by me, and some components had to be modified.
+In this particular blog post, I'm gonna focus on the hardware side of things: how I designed and printed the case, what hardware is needed, and how it all comes together. Basically, this is gonna be a computer build report - the difference being that the "computer" is a Raspberry Pi, the case was designed by me, and some components had to be modified.
 
 ## Raspberry Pi Zero 2W storage case
 
@@ -50,7 +50,7 @@ In this particular blog post, I'm gonna focus on the hardware side of things: ho
 
 I wanted to design a Raspberry Pi case that looked like a storage server. It had to have the following: a front drive bay, an indicator lights panel, the so-called "rack mount ears," and a rectangular form.
 
-Not gonna lie, I'm quite proud of how it came out — but let's go through it from the beginning.
+Not gonna lie, I'm quite proud of how it came out - but let's go through it from the beginning.
 
 ### Modeling software (FreeCad)
 
@@ -62,14 +62,14 @@ The current version of the model is 5.2. It took me around 1.5 months to get it 
 
 It took time to print and test various versions of the case, along with the mounting elements. There are challenges not only in designing, but also in printing things at this scale. These include:
 
-- Working with relatively small resolution (0.4mm on my printer) — you can read in the next section why dimensions should be multiples of 0.4mm or 0.2mm. But the thing is... non-3D-printed objects hardly ever follow this principle.
-- Theory doesn't transfer to practice 1:1 — trust me, a hole with 1.6mm in a sketch becomes a ~1mm hole when printed in a certain orientation. The old saying goes: even if something is mathematically correct, it doesn’t mean it can actually be produced.
-- No margin for error — the bigger the part, the greater the tolerance for small mistakes. For large components, being off by a couple of millimeters might not matter. But in this project, that margin basically doesn’t exist — measurements have to be spot on.
-- Test parts, not just designs — this kinda overlaps with the previous point, but some mistakes only become obvious when you're physically holding the part. A real-life example: I initially planned to use 2mm diameter fiber, but when I tried assembling the "server," I just couldn’t make the bends I needed to make it fit.
+- Working with relatively small resolution (0.4mm on my printer) - you can read in the next section why dimensions should be multiples of 0.4mm or 0.2mm. But the thing is... non-3D-printed objects hardly ever follow this principle.
+- Theory doesn't transfer to practice 1:1 - trust me, a hole with 1.6mm in a sketch becomes a ~1mm hole when printed in a certain orientation. The old saying goes: even if something is mathematically correct, it doesn’t mean it can actually be produced.
+- No margin for error - the bigger the part, the greater the tolerance for small mistakes. For large components, being off by a couple of millimeters might not matter. But in this project, that margin basically doesn’t exist - measurements have to be spot on.
+- Test parts, not just designs - this kinda overlaps with the previous point, but some mistakes only become obvious when you're physically holding the part. A real-life example: I initially planned to use 2mm diameter fiber, but when I tried assembling the "server," I just couldn’t make the bends I needed to make it fit.
 
 #### Best practices for modeling in FreeCad
 
-I learned a few things while working on this model, and ended up extending my list of principles I try to follow when modeling. I’ve shared that list below — it gives some insight into the "software side" of designing the case. If you don't care about 3D modeling and are just here for the results, you can [skip this chapter](#printing-the-case).
+I learned a few things while working on this model, and ended up extending my list of principles I try to follow when modeling. I’ve shared that list below - it gives some insight into the "software side" of designing the case. If you don't care about 3D modeling and are just here for the results, you can [skip this chapter](#printing-the-case).
 
 - **Use a spreadsheet to store dimensions** – FreeCad has a built-in spreadsheet mechanism that lets you store dimensions (as variables) and use them in calculations. It also makes changing values super quick. This is a must for larger projects.
 
@@ -79,15 +79,15 @@ I learned a few things while working on this model, and ended up extending my li
 
 - **Do mockup models** – When I designed the case, I first created simple mockups of the components (Raspberry Pi, hub), positioned them in space, and then designed the case around them. Using mockups saves time and helps ensure the final print fits properly.
 
-- **Use photos and schematics** – To make sure dimensions are accurate, you can overlay images onto your models. One way is to take a picture of the component with a ruler next to it, then scale it accordingly. This works decently for flat objects and _okay-ish_ for more dimensional ones — the issue is that lenses tend to distort reality a bit. A much better method is using a dimensional schematic if available (I used one for the Raspberry Pi).
+- **Use photos and schematics** – To make sure dimensions are accurate, you can overlay images onto your models. One way is to take a picture of the component with a ruler next to it, then scale it accordingly. This works decently for flat objects and _okay-ish_ for more dimensional ones - the issue is that lenses tend to distort reality a bit. A much better method is using a dimensional schematic if available (I used one for the Raspberry Pi).
 
-- **Split the design into smaller sections** – I learned it's way better to split your model into smaller parts and allow yourself to make mistakes. I had to reprint the whole case once because one of the fiber holders was a bit off-center relative to the LED. Before reprinting it, I made the fiber holder a separate model. That way, I could make multiple attempts at getting it right — spending just a gram of filament and a few minutes of printing each time. For comparison, the full case takes about ~40g of filament and prints for a few hours (on my printer).
+- **Split the design into smaller sections** – I learned it's way better to split your model into smaller parts and allow yourself to make mistakes. I had to reprint the whole case once because one of the fiber holders was a bit off-center relative to the LED. Before reprinting it, I made the fiber holder a separate model. That way, I could make multiple attempts at getting it right - spending just a gram of filament and a few minutes of printing each time. For comparison, the full case takes about ~40g of filament and prints for a few hours (on my printer).
 
-- **Do version control and save wisely** – FreeCad being Freecad can crash at any moment, but just saving frequently isn’t a solution. Since FreeCad uses [parametric modeling](https://www.sciencedirect.com/topics/engineering/parametric-modeling), you can make changes to early steps in the model — _but_ that means breaking things is really easy.
+- **Do version control and save wisely** – FreeCad being Freecad can crash at any moment, but just saving frequently isn’t a solution. Since FreeCad uses [parametric modeling](https://www.sciencedirect.com/topics/engineering/parametric-modeling), you can make changes to early steps in the model - _but_ that means breaking things is really easy.
 
   Now imagine: you spend a whole day modeling something, then decide to tweak a dimension in one of early sketches. You make the change... The project stops computing properly, so you do "undo" to restore it to latest working state. Now imagine: you did that change, saved by accident and your favorite modeling program crashed. When you reopen it, there's no "Ctrl + Z" anymore... and your project is toast. (Ask me how I know.)
 
-  That’s why some form of versioning is essential with FreeCad. Personally, I just use "Save As" with a version number in the filename every time I’m about to make a major change — simple but effective.
+  That’s why some form of versioning is essential with FreeCad. Personally, I just use "Save As" with a version number in the filename every time I’m about to make a major change - simple but effective.
 
 ### Printing the case
 
@@ -96,7 +96,7 @@ I printed the case with my Ender III clone made by Anycubic (2/10, do not recomm
 ![Case front](../../assets/posts/pi-zero-storage-server-shenanigans-pt-1-custom-case--hardware/case_front_w_top.jpeg)
 ![Case back](../../assets/posts/pi-zero-storage-server-shenanigans-pt-1-custom-case--hardware/case_back_w_top.jpeg)
 
-The case was printed in PETG filament to handle the heat generated by the hardware. Some supports were needed — especially for the outer bottom of the micro-USB bulk cover (on the case) and the fan mount tensioner (on the lid). I used a standard 0.4mm nozzle with 0.2mm layer height. If I recall correctly, the case took less than 40 grams of filament to print.
+The case was printed in PETG filament to handle the heat generated by the hardware. Some supports were needed - especially for the outer bottom of the micro-USB bulk cover (on the case) and the fan mount tensioner (on the lid). I used a standard 0.4mm nozzle with 0.2mm layer height. If I recall correctly, the case took less than 40 grams of filament to print.
 
 If you’re planning to print the case yourself, I’d suggest _not_ generating supports for the fiber tunnels, nut cutouts, or the inside of the micro-USB bulk cover. These parts are small enough that your printer should handle them just fine without supports. If my printer managed to do it, then any halfway decent one should have no trouble at all.
 
@@ -106,13 +106,13 @@ Let's talk hardware!
 
 #### Raspberry Pi Zero 2W
 
-The heart of the project is a Raspberry Pi Zero 2W — the whole thing was built around it.
+The heart of the project is a Raspberry Pi Zero 2W - the whole thing was built around it.
 
 ![Pi Zero 2W](../../assets/posts/pi-zero-storage-server-shenanigans-pt-1-custom-case--hardware/pi_zero_2w.jpeg)
 
 The story behind this project is pretty simple: I had a Pi Zero 2W lying around and decided to finally do something with it. That said, it turned out to be a perfect fit. The $15 Raspberry Pi Zero 2W is, to me, the essence of computing. It’s a fully fledged computer... for fifteen bucks. How cool is that?
 
-I added some heatsinks, which will hopefully help keep the Pi cool when overclocked. They also serve one additional purpose, but I’ll get to that later. My unit has GPIO pins already soldered in — they’re only used to power the fan in this build.
+I added some heatsinks, which will hopefully help keep the Pi cool when overclocked. They also serve one additional purpose, but I’ll get to that later. My unit has GPIO pins already soldered in - they’re only used to power the fan in this build.
 
 If you're planning to do something similar, I highly recommend going with the Pi Zero 2W instead of one of its predecessors. It has a quad-core processor, which is a massive performance upgrade for just a tiny bit more cash.
 
@@ -198,7 +198,7 @@ The hub is held in place by friction, but I obviously had to decapsulate it firs
 
 ![Hub wires](../../assets/posts/pi-zero-storage-server-shenanigans-pt-1-custom-case--hardware/hub_wires.jpeg)
 
-Additionally, I had to remove and resolder the wires onto the other side. You might have also noticed that there are only 4 wires coming out of it. That’s right, the solution is unfortunately limited to USB 2.0 speeds due to the Raspberry Pi's limitations — the biggest drawback of this project. ...but hey, I’m doing this for fun after all!
+Additionally, I had to remove and resolder the wires onto the other side. You might have also noticed that there are only 4 wires coming out of it. That’s right, the solution is unfortunately limited to USB 2.0 speeds due to the Raspberry Pi's limitations - the biggest drawback of this project. ...but hey, I’m doing this for fun after all!
 
 If you decide to attempt this project, make sure the wires are long enough to be routed as shown in the picture. The reason for this is that there’s no space under the fan for them to go through. You’ll also need a small micro-USB plug. I harvested mine from an old cable.
 

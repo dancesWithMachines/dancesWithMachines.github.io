@@ -182,8 +182,8 @@ To create an `rsync` task, go to `Services -> Rsync -> Tasks` and create a new t
 Setting up an `rsync job` is straightforward. Above, you can see part of my configuration. Key
 aspects are:
 
-- **Type:** Remote — to copy files across the network.
-- **Mode:** Push — to create a backup rather than pull it.
+- **Type:** Remote - to copy files across the network.
+- **Mode:** Push - to create a backup rather than pull it.
 - **Source shared folder:** Must point to a share.
 - **Destination server:** This is `<user>@<server-name>:<remote path>` (server name is configured in `/etc/hosts`).
 - **SSH certificate:** Should point to the certificate created in the previous section.

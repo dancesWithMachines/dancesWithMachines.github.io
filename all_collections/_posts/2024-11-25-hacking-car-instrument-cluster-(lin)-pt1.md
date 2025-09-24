@@ -42,7 +42,7 @@ After watching this, I thought: _"Why didn’t I think of that back then?"_
 
 And with that inspiration, I headed over to Allegro (the Polish equivalent of eBay) to look for an Alfa Romeo 159 auxiliary instrument cluster. Why? Initially, I wanted to integrate it into my car, thinking it might fit (spoiler: not a chance). My car lacks a coolant temperature gauge and a turbo gauge, and I thought it would be quite an accomplishment to integrate a cluster from a completely different car (model and manufacturer) into mine.
 
-## Hacking the Cluster — Attempt I
+## Hacking the Cluster - Attempt I
 
 ---
 
@@ -86,7 +86,7 @@ Well, CAN [operates at less than 5V](https://www.ti.com/document-viewer/lit/html
 
 ### The Mystery of 12V
 
-If I recall correctly, the first thing I did after this "incident" was ask ChatGPT about other automotive buses that operate at 12V. The answer? [**LIN — Local Interconnect Network**](https://www.csselectronics.com/pages/lin-bus-protocol-intro-basics).
+If I recall correctly, the first thing I did after this "incident" was ask ChatGPT about other automotive buses that operate at 12V. The answer? [**LIN - Local Interconnect Network**](https://www.csselectronics.com/pages/lin-bus-protocol-intro-basics).
 
 I disassembled the cluster again, and this time, I found it: the LIN transceiver. How did I miss it the first time? Well, it’s the only IC located on the front side of the PCB, somewhere in the marked area:
 
@@ -100,7 +100,7 @@ Later, I confirmed the auxiliary cluster uses LIN by analyzing wiring diagrams. 
 
 And that’s how what should’ve been a straightforward automotive instrument cluster hacking project turned into a challenge to get it working _at all costs_.
 
-## Hacking the Cluster — Attempt II
+## Hacking the Cluster - Attempt II
 
 ---
 

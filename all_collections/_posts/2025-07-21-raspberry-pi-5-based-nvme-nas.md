@@ -100,7 +100,7 @@ RAID array on it. (I’m looking at you, `ASM1061`.)
 
 I checked for reviews of this board and couldn’t find any, so here’s some stuff you should know about it:
 
-- It works plug-and-pray — no additional config was needed in my case.
+- It works plug-and-pray - no additional config was needed in my case.
 - The "2×20 Pin header x1" is included in the box, although many resellers don’t list it.
 - The "2×20 Pin header x1" _is required_ to be installed, even though it’s not shown in the pictures.
 
