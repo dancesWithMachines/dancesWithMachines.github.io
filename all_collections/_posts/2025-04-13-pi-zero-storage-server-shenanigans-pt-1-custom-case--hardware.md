@@ -36,7 +36,16 @@ If this sounds like something you're into, follow along to watch me build, confi
 
 I've also made a YouTube video that showcases the project:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4UGqJmxEyAk?si=-xSDnkFdW9fzZmPv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/4UGqJmxEyAk"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 ## Part One: Custom Case & Hardware
 

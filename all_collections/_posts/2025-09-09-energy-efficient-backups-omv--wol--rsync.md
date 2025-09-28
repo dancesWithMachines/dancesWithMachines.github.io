@@ -308,7 +308,16 @@ my case is:
 
 I prepared a demo to showcase the final result.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/vTbtyM5OzX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/vTbtyM5OzX8"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 For the demo, I executed the task (the one that triggers the wrapper script) manually and set up
 the `rsync` job to run in “dry mode” (no actual changes). On the left side, you can see the OMV

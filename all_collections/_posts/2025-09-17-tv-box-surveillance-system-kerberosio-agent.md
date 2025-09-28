@@ -74,11 +74,29 @@ remember?
 Speaking of TV boxes... Yes, you can take cheap Android TV boxes and turn them into small ARM Linux
 mini-computers. I've done it here...
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8Sfh7vml3gE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/8Sfh7vml3gE"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 ...and there...
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d9u-pe_GYpE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/d9u-pe_GYpE"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 TV boxes were a cheap replacement for ARM SBCs during the Raspberry Pi shortages a few years ago,
 but now they are probably just a gimmick (although I still think it’s cool to “free” e-waste).
@@ -445,11 +463,29 @@ have to tweak the settings, as they’re a bit too "soapy."
 
 The video from daytime:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Il0v43gPkFc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/Il0v43gPkFc"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 ...and one at night:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bmvRngX3ZDE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/bmvRngX3ZDE"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 ## Summary
 

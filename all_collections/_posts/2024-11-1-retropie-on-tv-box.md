@@ -55,7 +55,16 @@ Note: If you are trying to replicate this project, you should have knowledge of 
 
 I did a video regarding this project. This article is an addon for it it.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/d9u-pe_GYpE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/d9u-pe_GYpE"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 ## Quick links
 

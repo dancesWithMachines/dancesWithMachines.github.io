@@ -15,7 +15,16 @@ Today's post is about replacing the battery in my cursed iPod Photo (4th gen). Y
 
 I got into modding iPods after discovering [DankPods](https://www.youtube.com/@DankPods/videos), back when the channel focused on iPods. My first was an iPod Nano 3G, but I quickly ran out of storage. So, I took a gamble and bought a broken iPod Classic, specifically a 4th gen (Photo). Most of these fail due to hard drive issues, so took a leap of faith and replaced the broken drive with an SD card (yes, you can do that with a chain of adapters :D). Initially, the operation seemed successful, the iPod was alive, and I even made a video about it:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PDO8IemA0io?si=IRQih4rD277PFCtU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/PDO8IemA0io"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 Unfortunately, I soon discovered another issue: the iPod took days (yes, **days**) to charge. I recall reading on some forum that this could be due to a faulty charging IC, which I supposedly then confirmed with the built-in iPod hardware diagnostic test. Sadly, I can't find that source anymore, so you'll have to take my word for it. At the time, I was a broke student, so I went for the simplest solution I could think of, and thus the...
 

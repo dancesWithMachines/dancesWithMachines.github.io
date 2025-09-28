@@ -20,11 +20,29 @@ _Note: I’m lucky my girlfriend doesn’t care much about this._
 
 In the past, I played with car instrument clusters. My first project was a [Golf Mk.3](<https://en.wikipedia.org/wiki/Volkswagen_Golf#Third_generation_(Mk3/A3,_Typ_1H/1E/1V;_1991)>) based shelf clock, and I even made a video about it.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3B7vaYgUk3w?si=xsYxFtgzYmxU3zc4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/3B7vaYgUk3w"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 That project was, however, ridiculously easy. It only required supplying a [PWM signal](https://botland.store/blog/pwm-signal-what-is-it/) directly from an Arduino, no signal amplification was needed. Feeling more ambitious, I moved on to a [CAN](https://www.csselectronics.com/pages/can-bus-simple-intro-tutorial)-based cluster from a [Jaguar X-Type](https://pl.wikipedia.org/wiki/Jaguar_X-Type) and made a video about that too.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XNLJWUMKByM?si=85ZGuxg1ZmkZlKqS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/XNLJWUMKByM"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 I consider that attempt cheating, though. I connected a CAN bus adapter, received a few frames, and quickly realized I’d probably need the car (a Jag) to figure out what’s actually "flying" around in the CAN bus. CAN frames aren’t universal, not all of them, at least. Each manufacturer defines their own set of rules (IDs, data streams, etc.). The best way to crack these rules for a specific car model is to plug in a CAN adapter and observe the network activity.
 
@@ -34,7 +52,16 @@ In the end, I just hacked directly into the motors and got them moving with an A
 
 While browsing YouTube, I stumbled upon this video:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7uGUtiS9Tww?si=-UHIeKXrjmU_CVAj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/7uGUtiS9Tww"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
 
 The author demonstrated that even without knowing the CAN bus rules for a specific car, it’s still possible to reverse-engineer CAN frames. The technique involves spamming the cluster with common data patterns (e.g., all 0s, all 1s, alternating 1s and 0s like `0x55`, etc.) across the entire ID range and observing how the cluster reacts.
 
