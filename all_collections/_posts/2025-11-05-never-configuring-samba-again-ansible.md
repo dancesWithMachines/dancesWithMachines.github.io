@@ -41,7 +41,7 @@ device I can offload stuff to. Currently, the cube does the following:
 - runs `scanservice.js` for document scanning on the printer,
 - and was (or rather, _used to be_ until recently) the only x86 machine I had, so it doubled as a VM
   host, e.g. for running Windows if I
-  [needed it for something](2025-01-19-hacking-car-instrument-cluster-lin-pt2.md) a few times a
+  [needed it for something](../hacking-car-instrument-cluster-lin-pt2) a few times a
   year. (I'd rather burn in hell than run Windows outside a VM.)
 
 ...and, additionally, I use it to run some Linux-only software.
@@ -51,7 +51,7 @@ square-meter apartment, and the cube lives right in the center of the living roo
 away from my desk. Unfortunately, el cheapo hardware often means substantial fan noise, and that's
 exactly the case with this machine. I only boot it up when needed; otherwise, I'd go crazy from the
 fan noise it produces. If I could move it to a basement, like
-[I do with machines at my parents'](FIXME), that would be a different story, but for now, it only
+[I do with machines at my parents'](../energy-efficient-backups-omv-wol-rsync), that would be a different story, but for now, it only
 gets powered on when in use.
 
 Staying on the hardware topic...
