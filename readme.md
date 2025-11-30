@@ -1,51 +1,72 @@
 # dancesWithMachines
 
-This is the source of [dancesWithMachines](dancesWithMachines.github.io) web page. The website is build with Jekyll.
+This is the source of [dancesWithMachines](dancesWithMachines.github.io) web page. The website is
+build with Jekyll.
 
 ## License
 
-This website is build with [Jekyll](https://jekyllrb.com/docs/) and the theme used is [Serial Programmer](https://github.com/sharadcodes/jekyll-theme-serial-programmer) developed by [Sharad Raj](https://github.com/sharadcodes) licensed under MIT license. License can be found in the root of this repository.
+This website is build with [Jekyll](https://jekyllrb.com/docs/) and the theme used is
+[Serial Programmer](https://github.com/sharadcodes/jekyll-theme-serial-programmer) developed by
+[Sharad Raj](https://github.com/sharadcodes) licensed under MIT license. License can be found in the
+root of this repository.
 
 Content of this website is the property of Mateusz Kusiak (Timax).
 
-## Building
+## Setting up local env
 
-### Installing ruby 3.0.0 (Mac)
+Note: This is handled by ansible automation.
 
-1. Install ruby 3.0 via homebrew.
-   ```bash
-   brew install ruby@3.0
-   ```
-   Note: MacOS comes with ruby preinstalled, but messing with default instance is not advised.
-2. Add ruby path to `~/.bash_profile` (if using bash).
-   ```bash
-   # CUSTOM - Use brew provided ruby 3.0
-   export PATH="/opt/homebrew/opt/ruby@3.0/bin:$PATH"
-   ```
-3. Source `~/.bash_profile`.
-   ```bash
-   source ~/.bash_profile
-   ```
-4. Install Jekyll and Bundler.
-   ```bash
-   gem install bundler jekyll
-   ```
+### Installing ruby (Debian)
 
-### Build and run the website locally
+To install newest ruby, run the following commands.
 
-1. Download source files and go to the root of downloaded contents.
-2. Install dependencies.
-   ```bash
-   bundle install
-   ```
-   Note: `webrick` might need to be installed manually.
-   ```bash
-   gem install webrick
-   ```
-3. Build and serve the website.
-   ```bash
-   bundle exec jekyll serve --livereload
-   ```
+```bash
+sudo apt update
+sudo apt install ruby-full
+```
+
+Check the ruby version via...
+
+```bash
+ruby -v
+```
+
+### Setting up PATH
+
+Ruby installs gem locally at `/home/<user>/.local/share/gem/ruby/`, therefore the following needs to
+be added to
+`~/.bashrc` or `~/.zshrc`.:
+
+```bash
+export GEM_HOME="$(ruby -e 'print Gem.user_dir')"
+export PATH="$GEM_HOME/bin:$PATH"
+```
+
+## Running locally
+
+### Installing dependencies (gems)
+
+Install project dependencies:
+
+```bash
+bundle install
+```
+
+If there are issues with installing gems (eg. outdated), run the following to update gems versions
+to the newest.
+
+```bash
+bundle update
+```
+
+### Run server locally
+
+Run the following command to start server locally for development.
+
+```bash
+bundle exec jekyll serve --livereload
+```
+
 
 ## Styling
 

@@ -7,11 +7,11 @@ if [[ "$PWD" == *"/scripts"* ]]; then
 fi
 
 # Get the newest file starting with "signal" in the Downloads directory
-newest_signal_file=$(ls -t /Users/"$USER"/Downloads/signal* 2>/dev/null | head -n 1)
+newest_signal_file=$(ls -t "$HOME"/Downloads/signal* 2>/dev/null | head -n 1)
 
 # Check if any "signal" file exists
 if [[ -z "$newest_signal_file" ]]; then
-    echo "No Signal pics found in /Users/$USER/Downloads."
+    echo "No Signal pics found in $HOME/Downloads."
     exit 1
 fi
 
