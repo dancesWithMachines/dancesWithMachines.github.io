@@ -56,3 +56,34 @@ Misc:
 
 - Oil plug washer also fits from Toyota part no. 3029
 - Oil cover oring size is 52,6mm x 2,4mm
+
+#### Parts reference photos
+
+Here are reference photos for each part in case you'll need to visually compare them.
+
+##### Brake pads
+
+![brake_pads](../../assets/posts/kawasaki-z250sl-maintenance-summary/brake_pads.jpeg)
+
+##### Air filter
+
+![air_filter](../../assets/posts/kawasaki-z250sl-maintenance-summary/air_filter.jpeg)
+
+## Maintenance
+
+This section contains some HOW-TOs and videos on how to do a maintenance on some areas.
+
+### Changing front brake pads
+
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/T3mmV18uAgg"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
