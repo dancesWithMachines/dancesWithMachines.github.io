@@ -34,6 +34,23 @@ interested...
 
 ![side_top_view](../../assets/posts/two-computers-one-case-project-arm_bae--hardware/side_top_view.jpeg)
 
+## YouTube video
+
+---
+
+I’ve also put together an overview video on YouTube.
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/JF6s7WZnZjs"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
 ## The idea
 
 ---
@@ -98,7 +115,7 @@ Yet, in my humble, subjective opinion, the rails I came up with
 ARM computers, or other devices, into 5.25" bays ever takes off, I’d be happy to work on turning the
 rails and front plate into a specification or standard for more people to use. If you think you
 could use something like this, or are just interested in seeing it developed, feel free to contact
-me or leave a comment on the YouTube video once it’s released.
+me or leave a comment on [the YouTube video](https://youtu.be/JF6s7WZnZjs).
 
 ## Hardware
 
