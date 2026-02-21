@@ -323,7 +323,7 @@ is set to 720p at 15fps. I also set the preset to `ultrafast`, as otherwise the 
 
 Now, let's discuss the agent setup. Here's the directory structure I created on the host:
 
-```log
+```text
 timax@aml-s9xx-box:/srv/kerberosio$ tree .
 .
 ├── agent

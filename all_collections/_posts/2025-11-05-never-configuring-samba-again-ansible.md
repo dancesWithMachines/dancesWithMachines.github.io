@@ -214,7 +214,6 @@ My use case only scratches the surface of what Ansible can do. What I mainly wan
 - To know _what_, _how_, and _where_ things are installed. The problem with general-purpose Linux
   distros is that everybody seems to have a different idea of where and how software should reside.
   Some examples:
-
   - Some software you install via the package managers.
   - Some you download as `.deb`, `.rpm`, or other formats.
   - Some you just grab as precompiled binaries and place them in `$HOME/because/f/u/thats_why/`
@@ -240,7 +239,7 @@ were configured the way they were, but also prepare proper documentation on why.
 
 This is the file structure I ended up with:
 
-```log
+```text
 $ tree -L 3
 .
 ├── README.md
