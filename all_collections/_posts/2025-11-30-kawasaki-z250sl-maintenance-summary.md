@@ -69,12 +69,15 @@ Here are reference photos for each part in case you'll need to visually compare 
 
 ![air_filter](../../assets/posts/kawasaki-z250sl-maintenance-summary/air_filter.jpeg)
 
+##### Oil filter
+
+![oil_filter](../../assets/posts/kawasaki-z250sl-maintenance-summary/oil_filter.jpeg)
+
 ## Maintenance
 
 This section contains some HOW-TOs and videos on how to do a maintenance on some areas.
 
 ### Changing front brake pads
-
 
 <div style="width:100%">
   <iframe
@@ -87,3 +90,51 @@ This section contains some HOW-TOs and videos on how to do a maintenance on some
   ></iframe>
 </div>
 
+### Changing air filter
+
+**DO NOT CLEAN AIR-FILTER, BUY A NEW ONE!**
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/RrZ_YWsLD44"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
+### Changing oil filter and oil
+
+**DO NOT USE GLUE FOR THE SPRING, USE GREASE AS MANUAL SUGGESTS!**
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/5m3htyh95d4"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
+### Adjusting clutch
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/K7zgPRgGzCI"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
+## Service manual
+
+You can buy the service manual for the motorcycle for about 800PLN (~$220) in English directly from
+Kawasaki. ...or if you're cheap onion like me, a spanish version can be found online pretty
+easily[!](https://www.scribd.com/document/478274736/Manual-de-Servicio-Z250SL-BR250-2014-2016-En-Espanol-pdf)
