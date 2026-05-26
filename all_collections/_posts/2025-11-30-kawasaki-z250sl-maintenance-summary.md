@@ -133,6 +133,19 @@ This section contains some HOW-TOs and videos on how to do a maintenance on some
   ></iframe>
 </div>
 
+### Replacing brake fluid
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/twgmmQ7Livw"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
 ## Service manual
 
 You can buy the service manual for the motorcycle for about 800PLN (~$220) in English directly from
