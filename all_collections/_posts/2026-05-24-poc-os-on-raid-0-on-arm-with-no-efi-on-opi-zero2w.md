@@ -5,7 +5,11 @@ date: 2026-05-24 20:36
 categories: ["computer", "cursed", "hacking", "hardware", "shenanigans"]
 ---
 
-Hello there... It's already been 3 (busy) months since I've last posted anything here. A lot has
+Hello there...
+
+![opi_no_flashdrives](../../assets/posts/poc-os-on-raid-with-no-efi-on-opi-zero2w/opi_no_flashdrives.jpeg)
+
+It's already been 3 (busy) months since I've last posted anything here. A lot has
 happened since then, including me changing a job. ...and without going into details, I'm doing
 RAIDs again. That said, I've enjoyed being an "Embedded systems developer", and embedded Linux,
 firmware or playing with hardware is still a thing I'm keen on doing. I figured, why not use the
