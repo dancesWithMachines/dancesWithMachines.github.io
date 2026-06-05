@@ -23,18 +23,8 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --gray-1: #3f3f3f;
-    --gray-2: #32353a;
-    --gray-3: #25282c;
-    --gray-4: #151618;
-    --gray-5: #151618;
-    --gray-6: #111111;
-    --white-1: #eeeeee;
-    --white-2: #a9abb3;
-  }
-}
+/* :root above is already the dark palette, so no separate
+   prefers-color-scheme: dark block is needed. */
 
 [data-theme="light"] {
   --gray-1: #3f3f3f;
@@ -80,7 +70,7 @@ body {
   font-family: "JetBrains Mono", monospace;
   line-height: 2rem;
   background-color: var(--gray-5);
-  padding: 0 1.5rem;
+  padding: 0 1rem;
 }
 
 header {
@@ -93,22 +83,21 @@ header {
 }
 
 header .site-title {
-  font-size: clamp(1.5rem, 10vw, 4rem);
+  /* Scales fluidly with the viewport and stays on a single line.
+     ~6.5vw keeps "dancesWithMachines" inside the screen down to ~320px. */
+  font-size: clamp(1.1rem, 6.5vw, 4rem);
   font-weight: bolder;
   line-height: 110%;
   color: var(--white-1);
   margin-bottom: 0;
   padding-bottom: 0;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: calc(100% - 3rem);
+  white-space: nowrap;
 }
 
 .header-top-line {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   gap: 1rem;
 }
@@ -186,24 +175,31 @@ main {
   line-height: 1.2rem;
   font-weight: 300;
 }
-#text-wrapper a {
+/* Shared accent-link style for bio links and in-article links.
+   (`.content` only exists on post pages, but styling it here keeps a single
+   definition for both.) */
+#text-wrapper a,
+.content a {
   color: cyan;
   border-bottom: 1px solid cyan;
 }
 @media (prefers-color-scheme: light) {
-  #text-wrapper a {
+  #text-wrapper a,
+  .content a {
     color: #1ebaba;
     border-bottom: 1px solid #1ebaba;
   }
 }
 [data-theme="light"] {
-  #text-wrapper a {
+  #text-wrapper a,
+  .content a {
     color: #1ebaba;
     border-bottom: 1px solid #1ebaba;
   }
 }
 [data-theme="dark"] {
-  #text-wrapper a {
+  #text-wrapper a,
+  .content a {
     color: cyan;
     border-bottom: 1px solid cyan;
   }
@@ -244,7 +240,7 @@ main {
   margin: 3rem 0 3rem 0;
 }
 .articles .article {
-  padding: 2rem;
+  padding: 1.25rem;
   background: var(--gray-3);
   border-radius: 15px;
   transition: all 0.2s ease-in-out;
@@ -382,16 +378,13 @@ hr {
   font-size: 0.7rem;
 }
 
-/* Responsive design with dynamic font sizing */
-@media screen and (max-width: 900px) {
-  header .site-title {
-    font-size: clamp(1.4rem, 9vw, 3rem);
-  }
-}
-
+/* Responsive design.
+   The site title now scales via clamp() in `header .site-title`, so these
+   breakpoints only handle spacing/layout, not stepped font sizes. */
 @media screen and (max-width: 750px) {
   body {
-    padding: 1.5rem;
+    /* Minimal side gutter on mobile so content uses the full screen. */
+    padding: 0.75rem 0.3rem;
   }
   header {
     flex-direction: column;
@@ -400,28 +393,18 @@ hr {
   .header-top-line {
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
   }
   header #dark-mode-toggle {
     margin-top: 0;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
-    align-self: flex-start;
-  }
-  header .site-title {
-    font-size: clamp(1.3rem, 7vw, 1.8rem);
-    max-width: calc(100% - 3rem);
+    align-items: center;
+    align-self: center;
   }
 }
 
 @media screen and (max-width: 550px) {
-  header .site-title {
-    font-size: clamp(1.2rem, 6vw, 1.6rem);
-    word-break: break-word;
-    max-width: calc(100% - 3rem);
-  }
-
   .header-top-line {
     gap: 0.5rem;
   }
@@ -453,15 +436,14 @@ hr {
     margin: 2rem 0 3rem 0;
     row-gap: 1.2rem;
   }
-  header .site-title {
-    font-size: clamp(1.1rem, 5vw, 1.3rem);
-    max-width: calc(100% - 2.5rem);
-  }
   #dark-mode-toggle {
     transform: scale(0.75);
   }
-  .article {
-    padding: 1.2rem;
+  .articles .article {
+    /* Home-page cards only — must match the `.articles .article` specificity
+       of the base rule, or it's ignored. Scoping it here also stops it from
+       indenting the post-page `.article` wrapper below 350px. */
+    padding: 1rem;
   }
   .articles .article .article-title,
   .articles .article .article-title a {

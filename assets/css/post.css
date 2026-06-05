@@ -1,47 +1,22 @@
-.content a {
-  color: cyan;
-  border-bottom: 1px solid cyan;
-}
-@media (prefers-color-scheme: light) {
-  .content a {
-    color: #1ebaba;
-    border-bottom: 1px solid #1ebaba;
-  }
-}
-[data-theme="light"] {
-  .content a {
-    color: #1ebaba;
-    border-bottom: 1px solid #1ebaba;
-  }
-}
-[data-theme="dark"] {
-  .content a {
-    color: cyan;
-    border-bottom: 1px solid cyan;
-  }
-}
-.site-title {
-  font-size: 1.4rem;
-  font-weight: bolder;
-  line-height: 110%;
-  color: var(--white-1);
-}
-main {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 3rem 0 4rem 0;
-}
+/* Accent-link colors (.content a) now live in common.css alongside the
+   identical bio-link style — single source of truth.
+
+   `.site-title` and `main` are defined in common.css (loaded after this
+   file), so duplicating them here had no effect — removed to keep a single
+   source of truth. */
 .article {
   margin-bottom: 3rem;
 }
 
 .article-header {
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 .article-title {
-  font-size: 2.4rem;
+  /* Scales down on narrow screens instead of staying a fixed 2.4rem. */
+  font-size: clamp(1.4rem, 6.5vw, 2.4rem);
   margin-bottom: 0.6rem;
   line-height: 140%;
+  overflow-wrap: break-word;
 }
 
 .article .date {
@@ -149,23 +124,38 @@ main {
 }
 
 /* pre , code */
-.content,
-.content div,
-.content div pre,
-.content div pre code {
-  overflow-x: auto !important;
+
+/* Backstop: any over-wide content (e.g. tables) scrolls inside .content
+   rather than widening the whole page. */
+.content {
+  overflow-x: auto;
 }
 
+/* The code block itself is the scroll container. This applies to every code
+   block, including bare ```log fences that Rouge renders as a plain
+   <pre><code> with no wrapping <div> (which the old selector missed, letting
+   them push the whole page sideways). */
 .content pre {
   background: var(--gray-3);
   padding: 1rem 2rem;
   margin-bottom: 1.75rem;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
+.content pre code {
+  display: block;
+  padding: 0;
+  background: none;
+  white-space: pre;
+}
+
+/* Inline code may wrap so long tokens don't overflow the page. */
 .content code {
   padding: 3px 5px;
   color: var(--white-2);
-  white-space: pre;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   background: var(--gray-3);
 }
 
@@ -225,7 +215,9 @@ main {
 }
 
 @media screen and (max-width: 750px) {
-  body {
-    padding: 1.5rem;
+  /* Tighter code padding so the minimal mobile gutter isn't eaten up.
+     (Body padding itself is handled in common.css.) */
+  .content pre {
+    padding: 0.75rem 1rem;
   }
 }
