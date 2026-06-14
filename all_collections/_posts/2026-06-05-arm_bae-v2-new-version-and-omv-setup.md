@@ -28,6 +28,23 @@ If you're new here (or you just missed it), please read the
 [part I](/posts/two-computers-one-case-project-arm_bae-hardware/) for the full context. Here I will
 only cover what has changed.
 
+## YouTube Video
+
+---
+
+Here's a summary of this blog post in video form on YouTube.
+
+<div style="width:100%">
+  <iframe
+    src="https://www.youtube.com/embed/pncNTwmlheA"
+    title="YouTube video player"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="width:100%; aspect-ratio:16/9; border:0;"
+  ></iframe>
+</div>
+
 ## Oh my Pi
 
 ---
