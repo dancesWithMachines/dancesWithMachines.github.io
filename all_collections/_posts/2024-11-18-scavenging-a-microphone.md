@@ -2,7 +2,7 @@
 layout: post
 title: Scavenging a Microphone
 date: 2024-11-18 21:07
-categories: ["audio", "repair"]
+categories: ["audio"]
 ---
 
 Today’s post is about bringing a broken Blue Yeti microphone back to life.

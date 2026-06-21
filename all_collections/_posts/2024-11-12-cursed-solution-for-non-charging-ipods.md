@@ -2,7 +2,7 @@
 layout: post
 title: Cursed Solution for Non-Charging iPods
 date: 2024-11-12 11:14
-categories: ["shenanigans", "audio", "cursed"]
+categories: ["audio","cursed"]
 ---
 
 Today's post is about replacing the battery in my cursed iPod Photo (4th gen). You'd think that for a device this old, you'd simply swap the old battery for a new one, and the job would be done. Well, not for this iPod.

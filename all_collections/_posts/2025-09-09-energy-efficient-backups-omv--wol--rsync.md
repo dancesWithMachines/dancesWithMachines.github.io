@@ -2,7 +2,7 @@
 layout: post
 title: "Energy Efficient Backups: OMV + WOL + RSYNC"
 date: 2025-09-09 21:03
-categories: ["homelab", "computer"]
+categories: ["homelab"]
 ---
 
 In this blog post, I'm going to showcase the automatic backup setup of an OpenMediaVault based NAS

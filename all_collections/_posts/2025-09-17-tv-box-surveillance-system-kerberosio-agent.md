@@ -2,8 +2,7 @@
 layout: post
 title: "TV Box Surveillance System: Kerberos.io Agent"
 date: 2025-09-17 22:05
-categories:
-  ["diy", "electronics", "computer", "homelab", "cursed", "shenanigans"]
+categories: ["cursed","homelab"]
 ---
 
 Today’s blog post is a write-up on how I converted an el cheapo, spyware Android TV box into a

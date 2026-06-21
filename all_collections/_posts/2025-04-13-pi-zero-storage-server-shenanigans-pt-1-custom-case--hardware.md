@@ -2,8 +2,7 @@
 layout: post
 title: "Pi Zero Storage Server Shenanigans Pt. 1: Custom Case & Hardware"
 date: 2025-04-13 17:53
-categories:
-  ["3dprinting", "diy", "shenanigans", "hardware", "computer", "electronics"]
+categories: ["homelab","rpi-nas"]
 ---
 
 This is the first part of Raspberry Pi Zero 2W based Storage Server Shenanigans.

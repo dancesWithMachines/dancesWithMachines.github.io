@@ -2,7 +2,7 @@
 layout: post
 title: "Realtek rtl8852bu bluetooth audio issues fix"
 date: 2026-02-21 18:20
-categories: ["computer", "misc"]
+categories: ["audio","misc"]
 ---
 
 This one isn't a regular blog post. It is for people who have issues with Bluetooth audio on

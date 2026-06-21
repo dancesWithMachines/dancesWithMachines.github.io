@@ -2,7 +2,7 @@
 layout: post
 title: Hacking Car Instrument Cluster (LIN) PT.2
 date: 2025-01-19 21:27
-categories: ["automotive", "hacking", "embedded"]
+categories: ["automotive","embedded","hacking"]
 ---
 
 This blog post is a continuation of the first part of the series "Hacking Car Instrument Cluster." To understand the full context, please catch up by reading [part one]({% post_url 2024-11-25-hacking-car-instrument-cluster-(lin)-pt1 %}).

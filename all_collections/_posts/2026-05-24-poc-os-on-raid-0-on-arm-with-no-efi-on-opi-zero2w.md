@@ -2,7 +2,7 @@
 layout: post
 title: "PoC: OS on RAID 0 on ARM with no EFI on OPI zero2w"
 date: 2026-05-24 20:36
-categories: ["computer", "cursed", "hacking", "hardware", "shenanigans"]
+categories: ["cursed","hacking"]
 ---
 
 Hello there...

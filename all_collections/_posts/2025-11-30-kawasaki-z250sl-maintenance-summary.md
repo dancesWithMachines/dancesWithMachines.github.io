@@ -2,7 +2,7 @@
 layout: post
 title: "Kawasaki Z250SL: Maintenance summary"
 date: 2025-11-30 18:24
-categories: ["automotive", "misc"]
+categories: ["automotive","misc"]
 ---
 
 While this blog is mostly focused on "computer stuff", I do have other hobbies

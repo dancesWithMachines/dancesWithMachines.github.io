@@ -2,7 +2,7 @@
 layout: post
 title: Back to the Roots with Pico and Arduino
 date: 2024-12-16 15:30
-categories: ["embedded"]
+categories: ["embedded","hacking"]
 ---
 
 Today's post is about my thoughts on the Arduino platform and non-Arduino microcontrollers.

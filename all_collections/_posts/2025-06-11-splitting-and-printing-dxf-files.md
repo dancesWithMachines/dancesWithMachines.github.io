@@ -2,7 +2,7 @@
 layout: post
 title: "Splitting and Printing dxf files"
 date: 2025-06-11 21:11
-categories: ["3dprinting", "computer"]
+categories: ["3d"]
 ---
 
 In today's blog post, I'm gonna share a method I recently learned for printing `.dxf` files

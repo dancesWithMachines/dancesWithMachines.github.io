@@ -2,7 +2,7 @@
 layout: post
 title: "Pi Zero Storage Server Shenanigans Pt. 2: Overclocking & Power Consumption"
 date: 2025-04-21 16:35
-categories: ["diy", "shenanigans", "hardware", "computer", "electronics"]
+categories: ["homelab","rpi-nas"]
 ---
 
 This is the second part of the Raspberry Pi Zero 2W-based Storage Server Shenanigans.

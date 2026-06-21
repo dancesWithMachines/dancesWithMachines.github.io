@@ -2,8 +2,7 @@
 layout: post
 title: Fixing Cheap Headphones with 3D Printing
 date: 2025-02-15 15:21
-categories:
-  ["electronics", "audio", "diy", "repair", "3d-printing", "3d-modelling"]
+categories: ["3d","audio"]
 ---
 
 Today's post is about fixing a pair of cheap headphones with 3D printing.

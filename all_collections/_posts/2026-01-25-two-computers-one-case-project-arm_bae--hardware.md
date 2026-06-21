@@ -2,16 +2,7 @@
 layout: post
 title: "Two computers, one case: project arm_bae - hardware"
 date: 2026-01-25 12:21
-categories:
-  [
-    "3d-modelling",
-    "3d-printing",
-    "computer",
-    "electronics",
-    "hardware",
-    "homelab",
-    "diy",
-  ]
+categories: ["arm_bae","homelab"]
 ---
 
 Homelabbing, as I understand it, is running free (as in free will) versions of popular cloud services

@@ -2,7 +2,7 @@
 layout: post
 title: RetroPie on TV box
 date: 2024-11-01 15:11
-categories: ["reupload", "hardware", "computer", "shenanigans"]
+categories: ["hacking"]
 ---
 
 Note: This is a reupload of old article!

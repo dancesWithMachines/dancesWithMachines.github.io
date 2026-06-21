@@ -2,7 +2,7 @@
 layout: post
 title: A Rant on Apple Globe Key
 date: 2025-01-05 22:40
-categories: ["rant", "macos"]
+categories: ["misc"]
 ---
 
 A new year has just started, and with it comes the classic "new year, new me" cliché. Funny thing is, I started this year jobless after parting ways with Intel as part of their [cost reduction plans for 2025](https://www.theverge.com/2024/8/1/24210656/intel-is-laying-off-over-10000-employees-and-will-cut-10-billion-in-costs). But hey, at least I got to joke that if [Pat's leaving](https://www.intc.com/news-events/press-releases/detail/1719/intel-announces-retirement-of-ceo-pat-gelsinger), I'm leaving too!

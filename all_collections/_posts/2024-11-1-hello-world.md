@@ -2,7 +2,7 @@
 layout: post
 title: Hello World!
 date: 2024-11-01 11:32
-categories: ["first post"]
+categories: ["misc"]
 ---
 
 Welcome to the new dancesWithMachines web page!

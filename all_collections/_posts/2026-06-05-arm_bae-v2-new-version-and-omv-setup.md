@@ -2,7 +2,7 @@
 layout: post
 title: "arm_bae v2: new version and OMV setup"
 date: 2026-06-05 12:05
-categories: ["computer", "diy", "hardware", "homelab", "shenanigans"]
+categories: ["arm_bae","homelab"]
 ---
 
 It's finally the time to revisit and complete my

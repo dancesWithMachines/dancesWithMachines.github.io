@@ -2,7 +2,7 @@
 layout: post
 title: "Pi Zero Storage Server Shenanigans Pt. 3: Drive performance"
 date: 2025-04-29 21:44
-categories: ["diy", "shenanigans", "hardware", "computer", "electronics"]
+categories: ["homelab","rpi-nas"]
 ---
 
 This is the third part of the Raspberry Pi Zero 2W-based Storage Server Shenanigans.

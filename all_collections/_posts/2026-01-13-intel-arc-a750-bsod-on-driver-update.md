@@ -2,7 +2,7 @@
 layout: post
 title: "Intel Arc A750: BSOD on driver update"
 date: 2026-01-13 22:46
-categories: ["computer", "cursed"]
+categories: ["cursed"]
 ---
 
 Today's blog post is dedicated to all Intel ARC A750 owners who get

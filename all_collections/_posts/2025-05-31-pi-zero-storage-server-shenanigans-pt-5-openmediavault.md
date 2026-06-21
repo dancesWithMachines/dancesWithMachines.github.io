@@ -2,7 +2,7 @@
 layout: post
 title: "Pi Zero Storage Server Shenanigans Pt. 5: OpenMediaVault"
 date: 2025-05-31 17:49
-categories: ["diy", "shenanigans", "hardware", "computer", "electronics"]
+categories: ["homelab","rpi-nas"]
 ---
 
 This is the fifth, and the last part of the Raspberry Pi Zero 2W-based Storage Server Shenanigans.

@@ -2,7 +2,7 @@
 layout: post
 title: Desk Stand for iPod Photo
 date: 2024-11-27 14:40
-categories: ["3d-printing", "audio", "3d-modelling"]
+categories: ["3d","audio"]
 ---
 
 I recently replaced a battery in my modified iPod 4gen (Photo), which I described [in this post](./2024-11-12-cursed-solution-for-non-charging-ipods.md). I intend to use it more often, but I haven't got a place for it and I don't like having random things on my desk. There are some iPod docks still available to buy, but there wasn't any that I liked, nor did I particularly want a classic dock as it would take up space on my desk. I decided to approach this the other way and launched FreeCAD, coming up with this design:

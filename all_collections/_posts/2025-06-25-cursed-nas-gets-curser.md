@@ -2,7 +2,7 @@
 layout: post
 title: "Cursed NAS Gets Curser"
 date: 2025-06-25 19:56
-categories: ["computer", "cursed", "shenanigans", "hardware"]
+categories: ["cursed","homelab"]
 ---
 
 Two and a half years ago, I made this video showcasing the poor man's NAS I built.

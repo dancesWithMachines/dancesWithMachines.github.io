@@ -2,7 +2,7 @@
 layout: post
 title: Virtual Gauges for Turbo Colts
 date: 2024-11-09 16:51
-categories: ["automotive", "smartphone"]
+categories: ["automotive"]
 ---
 
 I'm once again into a phase where I feel like experimenting with car electronics. I got the idea from YouTuber [Upir](https://www.youtube.com/watch?v=ugS3rKBZVVc), whose recent videos focus on recreating car instrument clusters using various types of screens controlled by microcontrollers. It's a great concept I'd like to explore. However, integrating such a solution into my car would require hacking into its [CAN BUS](https://dewesoft.com/blog/what-is-can-bus) system and reading data with some kind of a microcontroller. While this isn't overly difficult, it would be time-consuming, and I'm already juggling another automotive project, which I'll probably share here later.

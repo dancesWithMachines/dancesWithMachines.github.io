@@ -2,16 +2,7 @@
 layout: post
 title: "Hands-free controling Creality Dry Box 2.0"
 date: 2025-07-14 19:09
-categories:
-  [
-    "3d-printing",
-    "diy",
-    "electronics",
-    "embedded",
-    "hacking",
-    "hardware",
-    "programming",
-  ]
+categories: ["3d","hacking"]
 ---
 
 My 3D printer lives in my parents' basement. While the electricity there is free and the noise

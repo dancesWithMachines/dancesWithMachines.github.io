@@ -2,7 +2,7 @@
 layout: post
 title: Hacking Car Instrument Cluster (LIN) PT.1
 date: 2024-11-25 10:38
-categories: ["automotive", "hacking", "embedded"]
+categories: ["automotive","embedded","hacking"]
 ---
 
 The time has come to address the elephant, or rather a set of automotive junk, in the (living) room.

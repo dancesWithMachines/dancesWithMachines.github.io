@@ -2,7 +2,7 @@
 layout: post
 title: "Pi Zero Storage Server Shenanigans Pt. 4: Mdadm and Samba"
 date: 2025-05-20 11:59
-categories: ["diy", "shenanigans", "hardware", "computer", "electronics"]
+categories: ["homelab","rpi-nas"]
 ---
 
 This is the fourth part of the Raspberry Pi Zero 2W-based Storage Server Shenanigans.

@@ -2,7 +2,7 @@
 layout: post
 title: "Raspberry Pi 5 based NVME NAS"
 date: 2025-07-21 18:36
-categories: [computer, homelab, diy, electronics, hardware]
+categories: ["homelab"]
 ---
 
 About a month ago, I posted a blog post about
