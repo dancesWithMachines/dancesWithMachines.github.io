@@ -68,6 +68,19 @@ bundle exec jekyll serve --livereload
 ```
 
 
+## Managing posts (`blog.py`)
+
+Helper CLI for common chores. Run from anywhere in the repo.
+
+```bash
+./blog.py new "Title" [--cat a,b]    # create a post + its assets dir
+./blog.py rename <post.md> ["Title"] # rename a post + its assets dir + title
+./blog.py signal-img [--name foo]    # copy newest ~/Downloads/signal* into newest post dir
+./blog.py verify                     # fix all posts (responsive iframes), report changes
+```
+
+Omitted arguments are prompted for interactively.
+
 ## Styling
 
 Here are few rules for post styling:
